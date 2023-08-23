@@ -5,7 +5,6 @@ import PageTitle from "../components/Contact/PageTitle";
 import Services from "../components/Contact/Services";
 import Clients from "../components/Contact/Clients";
 import ContactForm from "../components/Contact/ContactForm";
-import GoogleMaps from "../components/Contact/GoogleMaps";
 import Footer from "../components/Sections/Footer";
 import ToTop from "../components/Sections/ToTop";
 
@@ -21,7 +20,6 @@ const Contact = () => (
         <Services />
         <Clients className="section-box bg-grey" />
         <ContactForm />
-        <GoogleMaps />
         <Footer />
         <ToTop />
     </Layout>
