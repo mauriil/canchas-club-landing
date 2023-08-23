@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import dynamic from 'next/dynamic';
-import SimpleReactLightbox from 'simple-react-lightbox';
 
 // Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -126,7 +124,5 @@ export default function MyApp({ Component, pageProps }) {
         return () => (unmounted = true);
     });
 
-    return  <SimpleReactLightbox>
-                <Component {...pageProps} />
-            </SimpleReactLightbox>;
+    return  <Component {...pageProps} />
 }

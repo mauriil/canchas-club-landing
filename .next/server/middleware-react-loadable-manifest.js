@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"../components/Sections/ParallaxVideo.js -> react-modal-video\":{\"id\":\"../components/Sections/ParallaxVideo.js -> react-modal-video\",\"files\":[\"static/chunks/node_modules_react-modal-video_lib_index_js.js\"]}}"
