@@ -94,12 +94,6 @@ const Header = (props) => {
                                             <span>Planes</span>
                                         </Link>
                                     </li>
-                                    
-                                    <li className="nav-item search-option">
-                                        <a className="nav-link" href="#" onClick={handleSearch}>
-                                            <i className="fas fa-search"></i>
-                                        </a>
-                                    </li>
 
                                 </ul>
                                 
@@ -110,24 +104,6 @@ const Header = (props) => {
                 </div>
             </header>
 
-            {/* <!-- Search wrapper --> */}
-            <div className={!isSearch ? 'search-wrapper' : 'search-wrapper wrapper-active'}>
-
-                {/* <!-- Search form --> */}
-                <form role="search" method="get" className="search-form" action="#">				
-                    <input type="search" name="s" id="s"
-                        placeholder="Search Keyword"
-                        className="searchbox-input" autoComplete="off" required />
-                    
-                    <span>Input your search keywords and press Enter.</span>			
-                </form>
-
-                {/* <!-- Close button --> */}
-                <div className="search-wrapper-close">
-                    <span className="search-close-btn" role="button" tabIndex={0} onKeyPress={() => {}} onClick={handleSearch}></span>
-                </div>
-
-            </div>
         </>
     );
 }
