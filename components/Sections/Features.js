@@ -13,7 +13,7 @@ const Features = (props) => {
 					<Col className="col-12 col-md-10 col-lg-6">
 						
 						<div className="section-title text-center">
-							<h3>Awesome Features</h3>
+							<h3>Características Clave de Canchas Club</h3>
 							<p>Sed laoreet diam sagittis tempus convallis. Interdum et malesuada fames ac ante ipsum primis in faucibus. </p>
 						</div>
 						
@@ -38,7 +38,7 @@ const Features = (props) => {
 									
 									{/* <!-- Box Text --> */}
 									<div className="box-text align-self-center align-self-md-start">
-										<h4>Custom Shortcuts</h4>
+										<h4>Búsqueda personalizada por provincia, deporte y horario.</h4>
 										<p>Semper a augue suscipit, luctus neque purus ipsum neque dolor primis libero tempus velna culpa expedita.</p>
 									</div>
 									
@@ -56,7 +56,7 @@ const Features = (props) => {
 									
 									{/* <!-- Box Text --> */}
 									<div className="box-text align-self-center align-self-md-start">
-										<h4>Secure Integration</h4>
+										<h4>Reserva en línea segura y flexible, con opción de pago en persona.</h4>
 										<p>Semper a augue suscipit, luctus neque purus ipsum neque dolor primis libero tempus velna culpa expedita.</p>
 									</div>
 									
@@ -74,7 +74,7 @@ const Features = (props) => {
 									
 									{/* <!-- Box Text --> */}
 									<div className="box-text align-self-center align-self-md-start">
-										<h4>Free Live Chat</h4>
+										<h4>Plataforma intuitiva para dueños de canchas: administra turnos, precios y más.</h4>
 										<p>Semper a augue suscipit, luctus neque purus ipsum neque dolor primis libero tempus velna culpa expedita.</p>
 									</div>
 									
@@ -107,7 +107,7 @@ const Features = (props) => {
 									
 									{/* <!-- Box Text --> */}
 									<div className="box-text align-self-center align-self-md-start">
-										<h4>Social Share</h4>
+										<h4>Visibilidad en tiempo real de la disponibilidad de canchas según tus preferencias.</h4>
 										<p>Semper a augue suscipit, luctus neque purus ipsum neque dolor primis libero tempus velna culpa expedita.</p>
 									</div>
 									
@@ -125,7 +125,7 @@ const Features = (props) => {
 									
 									{/* <!-- Box Text --> */}
 									<div className="box-text align-self-center align-self-md-start">
-										<h4>Merge Files</h4>
+										<h4>Social link para compartir con tus potenciales clientes</h4>
 										<p>Semper a augue suscipit, luctus neque purus ipsum neque dolor primis libero tempus velna culpa expedita.</p>
 									</div>
 									
@@ -143,7 +143,7 @@ const Features = (props) => {
 									
 									{/* <!-- Box Text --> */}
 									<div className="box-text align-self-center align-self-md-start">
-										<h4>Action Reminder</h4>
+										<h4>Notificaciones via e-mail</h4>
 										<p>Semper a augue suscipit, luctus neque purus ipsum neque dolor primis libero tempus velna culpa expedita.</p>
 									</div>
 									

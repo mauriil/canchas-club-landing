@@ -20,8 +20,8 @@ const Screenshots = (props) => {
                     <Col className="col-12 col-md-10 col-lg-6">
 
                         <div className="section-title text-center">
-                            <h3>App Screenshots</h3>
-                            <p>Morbi velit leo, sodales in purus eu, pretium accumsan nunc. Praesent eu diam ut ante consequat euismod.</p>
+                            <h3>Explora la Experiencia Canchas Club</h3>
+                            <p>Echa un vistazo a cómo es navegar y reservar canchas en Canchas Club. Tanto si eres un jugador entusiasta como el dueño de una cancha, nuestra plataforma está diseñada para hacer que la experiencia sea sencilla y eficiente.</p>
                         </div>
 
                     </Col>

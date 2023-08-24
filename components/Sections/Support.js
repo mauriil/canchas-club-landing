@@ -13,8 +13,8 @@ const Support = (props) => {
 					<Col className="col-12 col-md-10 col-lg-6">
 						
 						<div className="section-title text-center">
-							<h3>Frequently Asked Questions</h3>
-							<p>Cras fringilla, lectus sed ullamcorper fringilla. Massa ex accumsan odio, quis iaculis justo magna quis tortor.</p>
+							<h3>Soporte de Canchas Club</h3>
+							<p>¿Tienes alguna pregunta o necesitas ayuda?</p>
 						</div>
 						
 					</Col>
@@ -125,7 +125,7 @@ const Support = (props) => {
 				
 				<Row>					
 					<Col className="col-12">
-						<p className="text-center mb-0">Still have a question? <a href="#contact"><strong>Ask your question here</strong></a></p>
+						<p className="text-center mb-0">¿No resolvimos tu duda? ¡Contáctanos en cualquier momento, estamos aquí para ayudarte!  <a href="#contact"><strong>Envianos tu consulta</strong></a></p>
 					</Col>
 				</Row>
 				

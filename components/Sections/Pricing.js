@@ -13,8 +13,8 @@ const Pricing = (props) => {
 					<Col className="col-12 col-md-10 col-lg-6">
 						
 						<div className="section-title text-center">
-							<h3>Pricing Plans</h3>
-							<p>Morbi nec massa ac ligula pulvinar congue. Nunc ut sollicitudin nibh. Etiam sem nibh, auctor sed, pharetra congue.</p>
+							<h3>Planes de Suscripción para Dueños de Canchas</h3>
+							<p>Maximiza la visibilidad de tu cancha y atrae a más jugadores con nuestros planes de suscripción. Elige el plan que mejor se adapte a las necesidades de tu club y comienza a administrar tus canchas de manera efectiva. Compara las características incluidas a continuación:</p>
                         </div>
 						
 					</Col>

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import YouTube from 'react-youtube';
@@ -48,7 +49,7 @@ const VideoBackground = () => {
 						<div className="banner-text text-center">
 
 							<h1 className="wow fadeInUp" data-wow-offset="10" data-wow-duration="1s" data-wow-delay="0s">
-								Reservas deportivas en un solo lugar
+								Encuentra y reserva canchas deportivas en Argentina 
 							</h1>
 							
 							<p className="wow fadeInUp" data-wow-offset="10" data-wow-duration="1s" data-wow-delay="0.3s">
@@ -57,10 +58,13 @@ const VideoBackground = () => {
 
 							<div className="button-store wow fadeInUp" data-wow-offset="10" data-wow-duration="1s" data-wow-delay="0.6s">
 
-								<button type="submit" id="contact-submit" name="send" className="btn d-inline-flex align-items-center m-2 m-sm-0 me-sm-3" > Soy dueño de un club</button>
+								<Link href="/#pricing" className="btn d-inline-flex align-items-center m-2 m-sm-0 me-sm-3">
+                                    <span>Soy dueño de un club</span>
+                                </Link>
 
-								<button type="submit" id="contact-submit" name="send" className="btn d-inline-flex align-items-center m-2 m-sm-0" >Busco canchas para jugar</button>
-			
+								<Link href="/#available-fields" className="btn d-inline-flex align-items-center m-2 m-sm-0 me-sm-3">
+                                    <span>Busco canchas para jugar</span>
+                                </Link>			
 								
 							
 							</div>
