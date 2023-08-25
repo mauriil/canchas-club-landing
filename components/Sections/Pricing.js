@@ -27,8 +27,8 @@ const Pricing = (props) => {
 
                         <div className="price-table">
 
-                            <div className="icon icon-software-layers2"></div>
-                            <h3 className="plan-type">Standard</h3>
+                            <div className="icon">⭐️</div>
+                            <h3 className="plan-type">CanchaEssentials</h3>
                             <h2 className="plan-price">$19/month</h2>
 
                             <ul className="list-unstyled plan-list">
@@ -47,8 +47,8 @@ const Pricing = (props) => {
 
                         <div className="price-table plan-popular mb-4 mb-sm-5 mb-lg-0">
 
-                            <div className="icon icon-basic-heart"></div>
-                            <h3 className="plan-type">Professional</h3>
+                            <div className="icon">💎</div>
+                            <h3 className="plan-type">CanchaProgresivo</h3>
                             <h2 className="plan-price">$29/month</h2>
 
                             <ul className="list-unstyled plan-list">
@@ -71,8 +71,8 @@ const Pricing = (props) => {
 
                         <div className="price-table">
 
-                            <div className="icon icon-weather-sun"></div>
-                            <h3 className="plan-type">Business</h3>
+                            <div className="icon">👑</div>
+                            <h3 className="plan-type">CanchaAvanzado</h3>
                             <h2 className="plan-price">$39/month</h2>
 
                             <ul className="list-unstyled plan-list">

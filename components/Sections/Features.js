@@ -33,7 +33,7 @@ const Features = (props) => {
 
 									{/* <!-- Box icon --> */}
 									<div className="box-icon">
-										<div className="icon icon-basic-sheet-multiple"></div>
+										<div className="icon">📢</div>
 									</div>
 
 									{/* <!-- Box Text --> */}
@@ -51,7 +51,7 @@ const Features = (props) => {
 
 									{/* <!-- Box icon --> */}
 									<div className="box-icon">
-										<div className="icon icon-basic-lock"></div>
+										<div className="icon">💳</div>
 									</div>
 
 									{/* <!-- Box Text --> */}
@@ -69,7 +69,7 @@ const Features = (props) => {
 
 									{/* <!-- Box icon --> */}
 									<div className="box-icon">
-										<div className="icon icon-basic-message-txt"></div>
+										<div className="icon">🛠️</div>
 									</div>
 
 									{/* <!-- Box Text --> */}
@@ -102,7 +102,7 @@ const Features = (props) => {
 
 									{/* <!-- Box icon --> */}
 									<div className="box-icon">
-										<div className="icon icon-basic-share"></div>
+										<div className="icon">📊</div>
 									</div>
 
 									{/* <!-- Box Text --> */}
@@ -122,7 +122,7 @@ const Features = (props) => {
 
 										{/* <!-- Box icon --> */}
 										<div className="box-icon">
-											<div className="icon icon-basic-gear"></div>
+											<div className="icon">🔍</div>
 										</div>
 
 										{/* <!-- Box Text --> */}
@@ -143,7 +143,7 @@ const Features = (props) => {
 
 									{/* <!-- Box icon --> */}
 									<div className="box-icon">
-										<div className="icon icon-basic-alarm"></div>
+										<div className="icon">📬</div>
 									</div>
 
 									{/* <!-- Box Text --> */}

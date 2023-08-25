@@ -27,7 +27,7 @@ const Overview = (props) => {
 							<div className="overview-box d-flex flex-wrap">
 
 								{/* <!-- Icon --> */}
-								<div className="icon icon-basic-compass"></div>
+								<div className="icon">⚙️</div>
 
 								{/* <!-- Content --> */}
 								<div className="content">
@@ -41,7 +41,7 @@ const Overview = (props) => {
 							<div className="overview-box d-flex flex-wrap">
 
 								{/* <!-- Icon --> */}
-								<div className="icon icon-basic-helm"></div>
+								<div className="icon">🏟️</div>
 
 								{/* <!-- Content --> */}
 								<div className="content">
@@ -55,7 +55,7 @@ const Overview = (props) => {
 							<div className="overview-box d-flex flex-wrap">
 
 								{/* <!-- Icon --> */}
-								<div className="icon icon-basic-link"></div>
+								<div className="icon">⏰</div>
 
 								{/* <!-- Content --> */}
 								<div className="content">
