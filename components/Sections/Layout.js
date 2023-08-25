@@ -33,6 +33,12 @@ const Layout = (props) => {
 				<meta charSet="utf-8" />
 				<meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
+				<meta property="og:locale" content="es_ES" />
+				<meta property="og:type" content="website" />
+				<meta property="og:title" content="Canchas Club" />
+				<meta property="og:description" content="Encuentra y Reserva Canchas Deportivas en Argentina" />
+				<meta property="og:image" content="https://canchas-club-space.nyc3.cdn.digitaloceanspaces.com/identidad-marca/LOGO/_png/CanchasClub_Logo_FondoColor-09.png" />
+				<meta property="og:url" content="https://canchas.club/" />
 
 				/* Title */
 				<title>{props.pageTitle}</title>
