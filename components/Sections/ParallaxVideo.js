@@ -18,9 +18,9 @@ const ParallaxVideo = () => {
     return (
         <>
             <ModalVideo channel='youtube' videoId="hs1HoLs4SD0" autoplay isOpen={isOpen} onClose={() => setOpen(false)} />
-            
-            <section id="parallax-video" className="parallax" data-image="/images/parallax/video.jpg" ref={parallax}>
-        
+
+            <section id="parallax-video" className="parallax" data-image="https://canchas-club-space.nyc3.cdn.digitaloceanspaces.com/identidad-marca/LOGO/_png/CanchasClub_Logo_FondoColor-08.png" ref={parallax}>
+
                 {/* <!-- Overlay --> */}
                 <div className="overlay" />
 
@@ -28,18 +28,18 @@ const ParallaxVideo = () => {
                 <Container>
 
                     <Row>
-                        
-                        <div className="video-btn wow fadeInUp" data-wow-offset="10" data-wow-duration="1s" data-wow-delay="0s">              
-            
+
+                        <div className="video-btn wow fadeInUp" data-wow-offset="10" data-wow-duration="1s" data-wow-delay="0s">
+
                             {/* <!-- Play button --> */}
-                            <a onClick={(e)=> {
+                            <a onClick={(e) => {
                                 e.preventDefault();
                                 return setOpen(true)
                             }} href="#" data-rel="lightcase" className="play-btn">
                                 <i className="fas fa-play"></i>
                             </a>
 
-                            <span className="video-text">Watch This Video</span>
+                            <span className="video-text">Mirá este video</span>
 
                         </div>
 

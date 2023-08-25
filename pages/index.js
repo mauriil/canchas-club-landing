@@ -5,9 +5,8 @@ import Header from "../components/Sections/Header";
 import Clients from "../components/Sections//Clients";
 import Features from "../components/Sections/Features";
 import ParallaxVideo from "../components/Sections/ParallaxVideo";
-import Services from "../components/Sections//Services";
+import ServicesPlayers from "../components/Sections/ServicesPlayers";
 import Overview from "../components/Sections/Overview";
-import Screenshots from "../components/Sections/Screenshots";
 import Support from "../components/Sections/Support";
 import Pricing from "../components/Sections/Pricing";
 import Contact from "../components/Sections/Contact";
@@ -25,14 +24,13 @@ const Index = () => (
         <Header nav="home" />
         <VideoBackground />
         <Clients className="section-box bg-grey" />
+        <ServicesPlayers serviceClassName="service-single" />
+        <AvailableFields />
         <Features />
         <ParallaxVideo />
-        <Services serviceClassName="service-single" />
         <Overview />
-        <Screenshots className="bg-grey" />
         <Support />
         <Pricing className="bg-grey" />
-        <AvailableFields />
         <Contact />
         <Footer />
         <ToTop />
