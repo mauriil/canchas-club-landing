@@ -37,7 +37,10 @@ const Layout = (props) => {
 				<meta property="og:type" content="website" />
 				<meta property="og:title" content="Canchas Club" />
 				<meta property="og:description" content="Encuentra y Reserva Canchas Deportivas en Argentina" />
-				<meta property="og:image" content="https://canchas-club-space.nyc3.cdn.digitaloceanspaces.com/identidad-marca/LOGO/_png/CanchasClub_Logo_FondoColor-09.png" />
+				<meta property="og:image:secure_url" content="https://canchas-club-space.nyc3.cdn.digitaloceanspaces.com/identidad-marca/LOGO/_png/CanchasClub_Logo_FondoColor-09.png" />
+				<meta property="og:image:width" content="1200" />
+				<meta property="og:image:height" content="630" />
+				<meta property='og:image:type' content='image/png' />
 				<meta property="og:url" content="https://canchas.club/" />
 
 				/* Title */
