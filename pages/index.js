@@ -17,9 +17,9 @@ import AvailableFields from "../components/Sections/AvailableFields";
 
 const Index = () => (
 
-    <Layout 
-        pageTitle="Naxos - React Next JS App Landing Page Template" 
-        colorSchema="/assets/colors/green.css" 
+    <Layout
+        pageTitle="Canchas Club - Encuentra y Reserva Canchas Deportivas en Argentina"
+        colorSchema="/assets/colors/green.css"
     >
         <Loader />
         <Header nav="home" />
