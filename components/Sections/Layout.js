@@ -18,25 +18,11 @@ const addStyleSheet = (path) => {
 // Layout
 const Layout = (props) => {
 
-	const getPresignedUrl = async () => {
-		const url= await fetch(`https://api.canchas.club/aws/getPresignedUrl/canchas-club/CanchasClub_IdentidadMarca/LOGO/_png/CanchasClub_Logo_FondoColor-09.png`, {
-			method: "GET",
-			headers: {
-				"Content-Type": "application/json",
-				credentials: "include",
-				mode: "cors",
-			},
-		});
-		console.log("🚀 ~ file: Layout.js:31 ~ getPresignedUrl ~ url.text():", await url.text())
-		
-	}
-
 	// Google web font
 	addStyleSheet("https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,700");
 
 	// Color schema
 	addStyleSheet(props.colorSchema);
-	console.log(getPresignedUrl())
 	return (
 		<div>
 			
@@ -50,8 +36,8 @@ const Layout = (props) => {
 				<meta property="og:type" content="website" />
 				<meta property="og:title" content="Canchas Club" />
 				<meta property="og:description" content="Encuentra y Reserva Canchas Deportivas en Argentina" />
-				<meta property="og:image" content={getPresignedUrl()} />
-				<meta property="og:image:secure_url" content={getPresignedUrl()} />
+				<meta property="og:image" content="https://canchas-club.s3.amazonaws.com/CanchasClub_IdentidadMarca/LOGO/_png/CanchasClub_Logo_FondoColor-09.png" />
+				<meta property="og:image:secure_url" content="https://canchas-club.s3.amazonaws.com/CanchasClub_IdentidadMarca/LOGO/_png/CanchasClub_Logo_FondoColor-09.png" />
 				<meta property="og:image:width" content="1200" />
 				<meta property="og:image:height" content="630" />
 				<meta property='og:image:type' content='image/png' />
