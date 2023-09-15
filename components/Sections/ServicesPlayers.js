@@ -26,7 +26,7 @@ const Services = (props) => {
 					<Col className="col-12 col-lg-4 res-margin wow fadeInUp" data-wow-offset="10" data-wow-duration="1s" data-wow-delay="0">
 						<div className={props.serviceClassName}>
 
-							<div className="icon">🌍</div>
+                        	<img src='/images/features/CanchasClub_Iconografia-BUSCA.svg' width={'100px'}></img>
 
 							<h5>Busca tu Cancha</h5>
 							<p>Usa nuestra intuitiva herramienta de búsqueda para encontrar la cancha perfecta según tu ubicación, deporte y horario deseado.</p>
@@ -38,7 +38,7 @@ const Services = (props) => {
 					<Col className="col-12 col-lg-4 res-margin wow fadeInUp" data-wow-offset="10" data-wow-duration="1s" data-wow-delay="0.3s">
 						<div className={props.serviceClassName}>
 
-							<div className="icon">📅</div>
+						<img src='/images/features/CanchasClub_Iconografia-RESERVALINEA.svg' width={'100px'}></img>
 
 							<h5>Reserva en Línea</h5>
 							<p>Selecciona la cancha que te guste y realiza tu reserva en línea de manera segura. También puedes optar por pagar en persona al llegar.</p>
@@ -50,7 +50,7 @@ const Services = (props) => {
 					<Col className="col-12 col-lg-4 res-margin wow fadeInUp" data-wow-offset="10" data-wow-duration="1s" data-wow-delay="0.6s">
 						<div className={props.serviceClassName}>
 
-							<div className="icon">⚽️</div>
+						<img src='/images/features/CanchasClub_Iconografia-JUEGA.svg' width={'100px'}></img>
 
 							<h5>¡Juega y Disfruta!</h5>
 							<p>Llega a la cancha en el horario seleccionado y disfruta de tu actividad deportiva. ¡Es así de simple y conveniente con Canchas Club!</p>

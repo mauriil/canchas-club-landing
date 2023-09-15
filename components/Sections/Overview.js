@@ -27,7 +27,7 @@ const Overview = (props) => {
 							<div className="overview-box d-flex flex-wrap">
 
 								{/* <!-- Icon --> */}
-								<div className="icon">⚙️</div>
+								<img src='/images/overview/CanchasClub_Iconografia-CONFIGCLUB.svg' width={'60px'}></img>
 
 								{/* <!-- Content --> */}
 								<div className="content">
@@ -41,7 +41,7 @@ const Overview = (props) => {
 							<div className="overview-box d-flex flex-wrap">
 
 								{/* <!-- Icon --> */}
-								<div className="icon">🏟️</div>
+								<img src='/images/overview/CanchasClub_Iconografia-AGREGACANCHAS.svg' width={'60px'}></img>
 
 								{/* <!-- Content --> */}
 								<div className="content">
@@ -55,7 +55,7 @@ const Overview = (props) => {
 							<div className="overview-box d-flex flex-wrap">
 
 								{/* <!-- Icon --> */}
-								<div className="icon">⏰</div>
+								<img src='/images/overview/CanchasClub_Iconografia-TURNOS.svg' width={'60px'}></img>
 
 								{/* <!-- Content --> */}
 								<div className="content">

@@ -27,7 +27,7 @@ const Pricing = (props) => {
 
                         <div className="price-table">
 
-                            <div className="icon">⭐️</div>
+                            <div className="icon"><img src='/images/pricing/CanchasClub_Iconografia-ESSENTIAL.svg' width={'100px'}></img> </div>
                             <h3 className="plan-type">CanchaEssentials</h3>
                             <h2 className="plan-price">$19/month</h2>
 
@@ -47,7 +47,7 @@ const Pricing = (props) => {
 
                         <div className="price-table plan-popular mb-4 mb-sm-5 mb-lg-0">
 
-                            <div className="icon">💎</div>
+                        <div className="icon"><img src='/images/pricing/CanchasClub_Iconografia-PROGRESIV.svg' width={'100px'}></img> </div>
                             <h3 className="plan-type">CanchaProgresivo</h3>
                             <h2 className="plan-price">$29/month</h2>
 
@@ -71,7 +71,7 @@ const Pricing = (props) => {
 
                         <div className="price-table">
 
-                            <div className="icon">👑</div>
+                        <div className="icon"><img src='/images/pricing/CanchasClub_Iconografia-AVANZADO.svg' width={'100px'}></img> </div>
                             <h3 className="plan-type">CanchaAvanzado</h3>
                             <h2 className="plan-price">$39/month</h2>
 

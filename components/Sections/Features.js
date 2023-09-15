@@ -33,7 +33,7 @@ const Features = (props) => {
 
 									{/* <!-- Box icon --> */}
 									<div className="box-icon">
-										<div className="icon">📢</div>
+										<img src='/images/features/CanchasClub_Iconografia-SOCIAL.svg' width={'350px'}></img>
 									</div>
 
 									{/* <!-- Box Text --> */}
@@ -51,7 +51,7 @@ const Features = (props) => {
 
 									{/* <!-- Box icon --> */}
 									<div className="box-icon">
-										<div className="icon">💳</div>
+										<img src='/images/features/CanchasClub_Iconografia-TARJETA.svg' width={'130px'}></img>
 									</div>
 
 									{/* <!-- Box Text --> */}
@@ -69,7 +69,7 @@ const Features = (props) => {
 
 									{/* <!-- Box icon --> */}
 									<div className="box-icon">
-										<div className="icon">🛠️</div>
+										<img src='/images/features/CanchasClub_Iconografia-PLATAFORMA.svg' width={'150px'}></img>
 									</div>
 
 									{/* <!-- Box Text --> */}
@@ -102,7 +102,7 @@ const Features = (props) => {
 
 									{/* <!-- Box icon --> */}
 									<div className="box-icon">
-										<div className="icon">📊</div>
+										<img src='/images/features/CanchasClub_Iconografia-VISIBILIDAD.svg' width={'150px'}></img>
 									</div>
 
 									{/* <!-- Box Text --> */}
@@ -122,7 +122,7 @@ const Features = (props) => {
 
 										{/* <!-- Box icon --> */}
 										<div className="box-icon">
-											<div className="icon">🔍</div>
+											<img src='/images/features/CanchasClub_Iconografia-BUSCA.svg' width={'80px'}></img>
 										</div>
 
 										{/* <!-- Box Text --> */}
@@ -143,7 +143,7 @@ const Features = (props) => {
 
 									{/* <!-- Box icon --> */}
 									<div className="box-icon">
-										<div className="icon">📬</div>
+										<img src='/images/features/CanchasClub_Iconografia-MAIL.svg' width={'130px'}></img>
 									</div>
 
 									{/* <!-- Box Text --> */}
