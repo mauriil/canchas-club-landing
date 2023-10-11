@@ -40,56 +40,56 @@ const Clients = (props) => {
                         {/* <!-- Client 1 --> */}
                         <SwiperSlide className="client">
                             <a href="#">
-                                <img src="/images/clients/company-1.png" alt="Client 1" />
+                                <img src="/images/banner/futbol5.png" alt="futbol5" />
                             </a>
                         </SwiperSlide>
 
                         {/* <!-- Client 2 --> */}
                         <SwiperSlide className="client">
                             <a href="#">
-                                <img src="/images/clients/company-2.png" alt="Client 2" />
+                            <img src="/images/banner/futbol12.png" alt="futbol12" />
                             </a>
                         </SwiperSlide>
 
                         {/* <!-- Client 3 --> */}
                         <SwiperSlide className="client">
                             <a href="#">
-                                <img src="/images/clients/company-3.png" alt="Client 3" />
+                            <img src="/images/banner/basquet.png" alt="basquet" />
                             </a>
                         </SwiperSlide>
 
                         {/* <!-- Client 4 --> */}
                         <SwiperSlide className="client">
                             <a href="#">
-                                <img src="/images/clients/company-4.png" alt="Client 4" />
+                            <img src="/images/banner/handball.png" alt="handball" />
                             </a>
                         </SwiperSlide>
 
                         {/* <!-- Client 5 --> */}
                         <SwiperSlide className="client">
                             <a href="#">
-                                <img src="/images/clients/company-5.png" alt="Client 5" />
+                            <img src="/images/banner/voley.png" alt="voley" />
                             </a>
                         </SwiperSlide>
 
                         {/* <!-- Client 6 --> */}
                         <SwiperSlide className="client">
                             <a href="#">
-                                <img src="/images/clients/company-6.png" alt="Client 6" />
+                            <img src="/images/banner/rugby.png" alt="rugby" />
                             </a>
                         </SwiperSlide>
 
                         {/* <!-- Client 7 --> */}
                         <SwiperSlide className="client">
                             <a href="#">
-                                <img src="/images/clients/company-7.png" alt="Client 7" />
+                            <img src="/images/banner/tenis.png" alt="tenis" />
                             </a>
                         </SwiperSlide>
 
                         {/* <!-- Client 8 --> */}
                         <SwiperSlide className="client">
                             <a href="#">
-                                <img src="/images/clients/company-8.png" alt="Client 8" />
+                            <img src="/images/banner/hockey.png" alt="hockey" />
                             </a>
                         </SwiperSlide>
 
