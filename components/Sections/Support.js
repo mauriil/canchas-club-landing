@@ -30,15 +30,12 @@ const Support = (props) => {
 							<Accordion.Item eventKey="0">
 
 								<Accordion.Header as="h5">
-									Can I see Naxos in action before purchasing it? 			        	
+								¿Qué datos necesito para registrarme?		        	
 								</Accordion.Header>
 
 								<Accordion.Body>
 									<p>
-										Nam erat orci, dictum eu iaculis a, scelerisque commodo risus. 
-										Mauris eu egestas ipsum. In hac habitasse platea dictumst. 
-										Duis in consequat est. Sed feugiat, ante in finibus ullamcorper, 
-										felis sem porta orci, sed pretium nibh nunc a tellus.
+									Solo necesitas proporcionar tu correo electrónico y datos de contacto básicos.
 									</p>
 								</Accordion.Body>
 								
@@ -48,15 +45,13 @@ const Support = (props) => {
 							<Accordion.Item eventKey="1">
 
 								<Accordion.Header as="h5">
-									I've got older Mac. Is Naxos compatible with it? 			        	
+								¿Cómo reservar un turno?			        	
 								</Accordion.Header>
 
 								<Accordion.Body>
 									<p>
-										Nam erat orci, dictum eu iaculis a, scelerisque commodo risus. 
-										Mauris eu egestas ipsum. In hac habitasse platea dictumst. 
-										Duis in consequat est. Sed feugiat, ante in finibus ullamcorper, 
-										felis sem porta orci, sed pretium nibh nunc a tellus.
+									Ingresa tu ubicación, el deporte y la fecha deseada para verificar la disponibilidad. Elige una cancha y un horario, selecciona la modalidad (simple/fijo) y proporciona una tarjeta como depósito de seguridad (garantía). La reserva es instantánea y no se cobrará a menos que no asistas al turno.
+									Tenemos una herramienta de búsqueda que te permite encontrar la cancha ideal <a href="#available-fields">haciendo click aqui</a>.	
 									</p>
 								</Accordion.Body>
 								
@@ -66,15 +61,12 @@ const Support = (props) => {
 							<Accordion.Item eventKey="2">
 
 								<Accordion.Header as="h5">
-									What are the requirements for using Naxos?			        	
+								¿Cómo cancelar un turno?		        	
 								</Accordion.Header>
 
 								<Accordion.Body>
 									<p>
-										Nam erat orci, dictum eu iaculis a, scelerisque commodo risus. 
-										Mauris eu egestas ipsum. In hac habitasse platea dictumst. 
-										Duis in consequat est. Sed feugiat, ante in finibus ullamcorper, 
-										felis sem porta orci, sed pretium nibh nunc a tellus.
+									Si eres nuevo, tu cuenta se crea con tu correo electrónico. Si ya eres usuario, inicia sesión con tu cuenta en nuestra <a href="https://app.canchas.club" target='_blank'><strong>plataforma web</strong></a>, ve a la pestaña "Mis Reservas" y administra tus reservas.
 									</p>
 								</Accordion.Body>
 								
@@ -84,15 +76,12 @@ const Support = (props) => {
 							<Accordion.Item eventKey="3">
 
 								<Accordion.Header as="h5">
-									How does Naxos handle my privacy? 			        	
+								¿Qué sucede si no encuentro la cancha que necesito en la plataforma? 			        	
 								</Accordion.Header>
 
 								<Accordion.Body>
 									<p>
-										Nam erat orci, dictum eu iaculis a, scelerisque commodo risus. 
-										Mauris eu egestas ipsum. In hac habitasse platea dictumst. 
-										Duis in consequat est. Sed feugiat, ante in finibus ullamcorper, 
-										felis sem porta orci, sed pretium nibh nunc a tellus.
+									Si no encuentras la cancha que buscas, contáctanos y haremos nuestro mejor esfuerzo para ayudarte a encontrar una opción adecuada.
 									</p>
 								</Accordion.Body>
 								
@@ -102,15 +91,12 @@ const Support = (props) => {
 							<Accordion.Item eventKey="4">
 
 								<Accordion.Header as="h5">
-									What is Naxos privacy policy?  			        	
+								¿Cómo puedo contactar al soporte en caso de problemas? 			        	
 								</Accordion.Header>
 
 								<Accordion.Body>
 									<p>
-										Nam erat orci, dictum eu iaculis a, scelerisque commodo risus. 
-										Mauris eu egestas ipsum. In hac habitasse platea dictumst. 
-										Duis in consequat est. Sed feugiat, ante in finibus ullamcorper, 
-										felis sem porta orci, sed pretium nibh nunc a tellus.
+									Puedes comunicarte con nuestro equipo de soporte a través de la sección  <a href="#contact"><strong>"Dejános tu consulta"</strong></a> en la plataforma o enviando un correo electrónico a soporte@canchas.club.
 									</p>
 								</Accordion.Body>
 								
