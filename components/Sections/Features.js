@@ -87,7 +87,7 @@ const Features = (props) => {
 					{/* <!-- Center --> */}
 					<Col className="col-12 col-lg-4 d-none d-lg-block">
 						<div className="features-thumb text-center">
-							<img src="/images/features/awesome-features.png" alt="" />
+							<img src="/images/mockups/CanchasClub_Logo_FondoTransparente.png" alt="" />
 						</div>
 					</Col>
 

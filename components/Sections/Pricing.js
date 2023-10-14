@@ -92,7 +92,7 @@ const Pricing = (props) => {
                 <Row>
 
                     <Col className="col-12 col-lg-8 offset-lg-2 mobile-phone wow fadeInUp" data-wow-offset="10" data-wow-duration="1s" data-wow-delay="0.9s">
-                        <img src="/images/mobile-phone.png" alt="" />
+                        <img src="/images/mockups/CanchasClub_Mockup4_Acostado.png" alt="" />
                     </Col>
 
                 </Row>

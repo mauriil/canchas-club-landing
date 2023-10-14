@@ -100,7 +100,7 @@ const VideoBackground = () => {
 
 			{/* <!-- Image --> */}
 			<div className="banner-image-center w-100 wow fadeInUp" data-wow-offset="10" data-wow-duration="1s" data-wow-delay="0.3s">
-				<img src="/images/banner/video-welcome.png" alt="" />
+				<img src="/images/mockups/CanchasClub_Mockup1_Home.png" alt="" />
 			</div>
 
 		</section>
