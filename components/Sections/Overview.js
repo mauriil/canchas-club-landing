@@ -2,6 +2,9 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 const Overview = (props) => {
+	const [configOver, setConfigOver] = React.useState(false);
+	const [addCourtOver, setAddCourtOver] = React.useState(false);
+	const [manageTurnsOver, setManageTurnsOver] = React.useState(false);
 	return (
 		<section id="overview" className={props.className}>
 
@@ -24,10 +27,18 @@ const Overview = (props) => {
 						<div className="overview-item">
 
 							{/* <!-- Item 1 --> */}
-							<div className="overview-box d-flex flex-wrap">
+							<div className="overview-box d-flex flex-wrap"
+								onMouseEnter={() => setConfigOver(true)}
+								onMouseLeave={() => setConfigOver(false)}
+							>
 
 								{/* <!-- Icon --> */}
-								<img src='/images/overview/CanchasClub_Iconografia-CONFIGCLUB.svg' width={'60px'}></img>
+								<img src={
+									configOver ?
+										'/images/overview/CanchasClub_Iconografia-CONFIGCLUB-over.svg'
+										:
+										'/images/overview/CanchasClub_Iconografia-CONFIGCLUB.svg'
+								} width={'60px'}></img>
 
 								{/* <!-- Content --> */}
 								<div className="content">
@@ -38,10 +49,18 @@ const Overview = (props) => {
 							</div>
 
 							{/* <!-- Item 2 --> */}
-							<div className="overview-box d-flex flex-wrap">
+							<div className="overview-box d-flex flex-wrap"
+								onMouseEnter={() => setAddCourtOver(true)}
+								onMouseLeave={() => setAddCourtOver(false)}
+							>
 
 								{/* <!-- Icon --> */}
-								<img src='/images/overview/CanchasClub_Iconografia-AGREGACANCHAS.svg' width={'60px'}></img>
+								<img src={
+									addCourtOver ?
+										'/images/overview/CanchasClub_Iconografia-AGREGACANCHAS-over.svg'
+										:
+										'/images/overview/CanchasClub_Iconografia-AGREGACANCHAS.svg'
+								} width={'60px'}></img>
 
 								{/* <!-- Content --> */}
 								<div className="content">
@@ -52,10 +71,18 @@ const Overview = (props) => {
 							</div>
 
 							{/* <!-- Item 3 --> */}
-							<div className="overview-box d-flex flex-wrap">
+							<div className="overview-box d-flex flex-wrap"
+								onMouseEnter={() => setManageTurnsOver(true)}
+								onMouseLeave={() => setManageTurnsOver(false)}
+							>
 
 								{/* <!-- Icon --> */}
-								<img src='/images/overview/CanchasClub_Iconografia-TURNOS.svg' width={'60px'}></img>
+								<img src={
+									manageTurnsOver ?
+										'/images/overview/CanchasClub_Iconografia-TURNOS-over.svg'
+										:
+										'/images/overview/CanchasClub_Iconografia-TURNOS.svg'
+								} width={'60px'}></img>
 
 								{/* <!-- Content --> */}
 								<div className="content">
