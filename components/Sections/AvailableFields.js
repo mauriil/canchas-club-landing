@@ -50,7 +50,7 @@ const AvailableFields = (props) => {
 
     const handleReservation = () => {
         const day = selectedCancha?.availability.find((availability) => availability.key === selectedDay)?.day;
-        window.open(`http://localhost:5173/reserva/${day}/${selectedStartTime}/${selectedEndTime}/${selectedCancha._id}`, '_blank');
+        window.open(`https://app.canchas.club/reserva/${day}/${selectedStartTime}/${selectedEndTime}/${selectedCancha._id}`, '_blank');
     };
 
     useEffect(() => {
@@ -98,7 +98,6 @@ const AvailableFields = (props) => {
         fetch(`https://api.canchas.club/fields?`)
             .then((response) => response.json())
             .then((data) => {
-                console.log("🚀 ~ file: AvailableFields.js:63 ~ .then ~ data:", data)
                 setCanchas(data);
             })
             .catch((error) => {
