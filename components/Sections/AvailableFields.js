@@ -213,7 +213,10 @@ const AvailableFields = (props) => {
                             {canchas.map((cancha) => (
                                 <Grid item xs={12} sm={6} md={4} lg={3} key={cancha.id}>
                                     <Card>
-                                        <Card.Img variant="top" src={cancha.photos[0]} />
+                                        <Card.Img variant="top" src={`https://canchas-club.s3.amazonaws.com/${cancha.photos[0]}`} sx={{
+                                            height: '200px',
+                                            objectFit: 'cover',
+                                        }} />
                                         <Card.Body>
                                             <Card.Title>{cancha.name}</Card.Title>
                                             <Card.Text>
@@ -222,10 +225,13 @@ const AvailableFields = (props) => {
                                             <Card.Text>
                                                 {cancha.sport}
                                             </Card.Text>
-                                            <Card.Text>
+                                            <Card.Text sx={{
+                                                maxHeight: '100px',
+                                                overflow: 'scroll',
+                                            }}>
                                                 {cancha.availability.map((availability) => (
                                                     <div>
-                                                        {availability.day} {availability.from} - {availability.to}
+                                                        {availability.day} {availability.from} - {availability.to} ${availability.price}
                                                     </div>
                                                 ))}
                                             </Card.Text>
