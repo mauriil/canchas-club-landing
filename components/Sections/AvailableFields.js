@@ -206,9 +206,34 @@ const AvailableFields = (props) => {
                         </Toolbar>
                     </AppBar>
                     <Container>
-                        <Grid container spacing={2}>
-                            {/* Renderizar resultados en forma de tarjetas */}
-                            {/* Aquí puedes mapear los resultados y mostrarlos como tarjetas */}
+                        <Grid container spacing={2} sx={{
+                            overflow: 'scroll',
+                            maxHeight: 'calc(100vh - 200px)',
+                        }}>
+                            {canchas.map((cancha) => (
+                                <Grid item xs={12} sm={6} md={4} lg={3} key={cancha.id}>
+                                    <Card>
+                                        <Card.Img variant="top" src={cancha.photos[0]} />
+                                        <Card.Body>
+                                            <Card.Title>{cancha.name}</Card.Title>
+                                            <Card.Text>
+                                                {cancha.clubId.address}
+                                            </Card.Text>
+                                            <Card.Text>
+                                                {cancha.sport}
+                                            </Card.Text>
+                                            <Card.Text>
+                                                {cancha.availability.map((availability) => (
+                                                    <div>
+                                                        {availability.day} {availability.from} - {availability.to}
+                                                    </div>
+                                                ))}
+                                            </Card.Text>
+                                            <Button variant="primary">Reservar</Button>
+                                        </Card.Body>
+                                    </Card>
+                                </Grid>
+                            ))}
                             <Grid item xs={12} sm={6} md={4}>
                                 <Card>
                                     <CardContent>
@@ -220,8 +245,18 @@ const AvailableFields = (props) => {
                                         </Button>
                                     </CardContent>
                                 </Card>
+                            </Grid><Grid item xs={12} sm={6} md={4}>
+                                <Card>
+                                    <CardContent>
+                                        <Typography variant="h6">Nombre de la Cancha</Typography>
+                                        <Typography>Horarios Disponibles</Typography>
+                                        <Typography>Precio</Typography>
+                                        <Button variant="contained" color="primary">
+                                            Reservar
+                                        </Button>
+                                    </CardContent>
+                                </Card>
                             </Grid>
-                            {/* Repite esta estructura para cada resultado */}
                         </Grid>
                     </Container>
 
