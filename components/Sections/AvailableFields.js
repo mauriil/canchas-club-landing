@@ -284,7 +284,7 @@ const AvailableFields = (props) => {
                         <TextField
                             select
                             label="Día"
-                            value={selectedDay}
+                            value={selectedCancha?.availability.find((availability) => availability.key === selectedDay)?.day}
                             onChange={(e) => setSelectedDay(e.target.value)}
                             fullWidth
                             sx={{ mb: 2, mt: 2 }}
