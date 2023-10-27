@@ -10,8 +10,10 @@ const AvailableFields = (props) => {
     const [horaDesde, setHoraDesde] = useState('08:00');
     const [provincia, setProvincia] = useState('Buenos Aires');
     const [departments, setDepartments] = useState([]);
-    const [departamento, setDepartamento] = useState('');
+    const [departamento, setDepartamento] = useState('all');
+    const [deporte, setDeporte] = useState('all');
     const [loading, setLoading] = useState(false);
+    const [canchas, setCanchas] = useState([]);
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((position) => {
@@ -55,8 +57,16 @@ const AvailableFields = (props) => {
 
     const handleSearch = () => {
         setLoading(true)
-        // Realiza la búsqueda de canchas con los filtros seleccionados
-        // Puedes llamar a una función aquí que maneje la lógica de búsqueda
+        fetch(`https://api.canchas.club/fields?`)
+            .then((response) => response.json())
+            .then((data) => {
+                console.log("🚀 ~ file: AvailableFields.js:63 ~ .then ~ data:", data)
+                setCanchas(data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+
     };
 
     const frm = useRef(null);
@@ -94,7 +104,7 @@ const AvailableFields = (props) => {
 
                     }}>
                         <Toolbar>
-                            <Container maxWidth="md">
+                            <Container>
                                 <Grid container spacing={2} sx={{
                                     alignItems: 'center',
                                     justifyContent: 'center',
@@ -129,7 +139,7 @@ const AvailableFields = (props) => {
                                             onChange={(e) => setProvincia(e.target.value)}
                                             fullWidth
                                             variant="outlined"
-                                            sx={{ height: 83 }} 
+                                            sx={{ height: 83 }}
                                         >
                                             {provinces.map((province) => (
                                                 <MenuItem key={province} value={province}>
@@ -145,8 +155,9 @@ const AvailableFields = (props) => {
                                             onChange={(e) => setDepartamento(e.target.value)}
                                             fullWidth
                                             variant="outlined"
-                                            sx={{ height: 80 }} 
+                                            sx={{ height: 80 }}
                                         >
+                                            <MenuItem value="all" selected>Todos</MenuItem>
                                             {departments.map((department) => (
                                                 <MenuItem key={department} value={department} selected>
                                                     {department}
@@ -155,12 +166,36 @@ const AvailableFields = (props) => {
                                         </Select>
                                     </Grid>
                                     <Grid item xs={12} sm={2}>
+                                        <Typography variant="body1">Deporte</Typography>
+                                        <Select
+                                            value={deporte}
+                                            onChange={(e) => setDeporte(e.target.value)}
+                                            fullWidth
+                                            variant="outlined"
+                                            sx={{ height: 80 }}
+                                        >
+                                            <MenuItem value="all" selected>Todos</MenuItem>
+                                            <MenuItem value="tenis">Tenis</MenuItem>
+                                            <MenuItem value="paddle">Paddle</MenuItem>
+                                            <MenuItem value="basquet">Básquet</MenuItem>
+                                            <MenuItem value="hockey">Hockey</MenuItem>
+                                            <MenuItem value="rugby">Rugby</MenuItem>
+                                            <MenuItem value="voley">Voley</MenuItem>
+                                            <MenuItem value="handball">Handball</MenuItem>
+                                            <MenuItem value="squash">Squash</MenuItem>
+                                            <MenuItem value="futbol5">Fútbol 5</MenuItem>
+                                            <MenuItem value="futbol7">Fútbol 7</MenuItem>
+                                            <MenuItem value="futbol9">Fútbol 9</MenuItem>
+                                            <MenuItem value="futbol11">Fútbol 11</MenuItem>
+                                        </Select>
+                                    </Grid>
+                                    <Grid item xs={12} sm={2}>
                                         <Button
                                             fullWidth
                                             variant="contained"
                                             color="primary"
                                             onClick={handleSearch}
-                                            sx={{ height: 83, mt: '1.5rem' }} 
+                                            sx={{ height: 83, mt: '1.5rem' }}
                                         >
                                             {loading ? 'Buscando...' : 'Buscar'}
                                         </Button>
@@ -170,7 +205,7 @@ const AvailableFields = (props) => {
                             </Container>
                         </Toolbar>
                     </AppBar>
-                    <Container maxWidth="md">
+                    <Container>
                         <Grid container spacing={2}>
                             {/* Renderizar resultados en forma de tarjetas */}
                             {/* Aquí puedes mapear los resultados y mostrarlos como tarjetas */}
