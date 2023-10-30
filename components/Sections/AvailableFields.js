@@ -69,7 +69,7 @@ const AvailableFields = (props) => {
         }).then(async (response) => {
             const body = await response.json();
             if (response.status === 201) {
-                window.open(`https://app.canchas.club/reserva/${body.bookingId}`, '_blank');
+                window.location.href = `https://app.canchas.club/reserva/${body.bookingId}`;
             } else {
                 alert('Error al reservar');
             }
