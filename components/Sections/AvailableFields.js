@@ -4,6 +4,7 @@ import { useForm } from '@formspree/react';
 import { AppBar, Button, CardContent, Dialog, DialogContent, DialogTitle, Grid, InputAdornment, MenuItem, Select, TextField, Toolbar, Typography, DialogActions } from '@mui/material';
 import { localidades } from './locations.json';
 import HalfHourTimeSelector from './HalfHoursSelector';
+import { Watch } from 'react-loader-spinner'
 
 const AvailableFields = (props) => {
     const [state, handleSubmit] = useForm("FORMSPREE_FORM_ID");
@@ -51,7 +52,7 @@ const AvailableFields = (props) => {
     const handleReservation = () => {
         const day = selectedCancha?.availability.find((availability) => availability.key === selectedDay)?.day;
 
-        const url = `https://app.canchas.club/bookings/prebooking`;
+        const url = `https://api.canchas.club/bookings/prebooking`;
         fetch(url, {
             method: 'POST',
             headers: {
@@ -118,7 +119,14 @@ const AvailableFields = (props) => {
 
     const handleSearch = () => {
         setLoading(true)
-        fetch(`https://api.canchas.club/fields?`, {
+        let query = '';
+        console.log("🚀 ~ file: AvailableFields.js:124 ~ handleSearch ~ deporte:", deporte)
+        query += deporte !== 'all' ? `sport=${encodeURIComponent(deporte)}&` : ''
+        query += selectedDay !== '' ? `availability=${encodeURIComponent(selectedDay)}&`: ''
+        query += provincia !== '' ? `province=${encodeURIComponent(provincia)}&`: ''
+        query += departamento !== 'all' ? `department=${encodeURIComponent(departamento)}&`: ''
+
+        fetch(`https://api.canchas.club/fields?${query}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -131,6 +139,7 @@ const AvailableFields = (props) => {
                     cancha.availability = cancha.availability.filter((availability) => availability.status === 'available');
                   });
                 setCanchas(data);
+                setLoading(false);
             })
             .catch((error) => {
                 console.error(error);
@@ -275,33 +284,47 @@ const AvailableFields = (props) => {
                         </Toolbar>
                     </AppBar>
                     <Container>
-                        <Grid container spacing={2} sx={{ overflowY: 'auto', maxHeight: '600px' }}>
-                            {canchas.map((cancha) => (
-                                <Grid item xs={12} sm={6} md={4} lg={3} key={cancha.id} sx={{ display: 'flex' }}>
-                                    <Card sx={{ flex: 1, display: 'flex', flexDirection: 'column' }} >
-                                        <Card.Img
-                                            variant="top"
-                                            src={`https://canchas-club.s3.amazonaws.com/${cancha.photos[0]}`}
-                                            sx={{ flex: 1, objectFit: 'cover' }}
-                                        />
-                                        <Card.Body sx={{ flex: '0 1 auto', overflowY: 'auto' }}>
-                                            <Card.Title>{cancha.name}</Card.Title>
-                                            <Card.Text>{cancha.clubId.address}</Card.Text>
-                                            <Card.Text>{cancha.sport}</Card.Text>
-                                            <Card.Text>
-                                                {cancha.availability.map((availability) => (
-                                                    <Typography key={Math.floor(Math.random() * 1000000)}>
-                                                        {availability.day} {availability.from} - {availability.to} ${availability.price}
-                                                    </Typography>
-                                                ))}
-                                            </Card.Text>
-                                            <Button variant="primary" className="btn" sx={{ width: '100%' }} onClick={() => handleOpenModal(cancha)}>
-                                                Reservar
-                                            </Button>
-                                        </Card.Body>
-                                    </Card>
-                                </Grid>
-                            ))}
+                        <Grid container spacing={2} sx={{ 
+                            overflowY: 'auto',
+                            maxHeight: '600px',
+                            alignContent: 'center',
+                            justifyContent: 'center',
+                    }}>
+                            {loading ? (
+                                <Watch
+                                    type="ThreeDots"
+                                    color="#00BFFF"
+                                    height={100}
+                                    width={100}
+                                />
+                            ) : (
+                                canchas.map((cancha) => (
+                                    <Grid item xs={12} sm={6} md={4} lg={3} key={cancha.id} sx={{ display: 'flex' }}>
+                                        <Card sx={{ flex: 1, display: 'flex', flexDirection: 'column' }} >
+                                            <Card.Img
+                                                variant="top"
+                                                src={`https://canchas-club.s3.amazonaws.com/${cancha.photos[0]}`}
+                                                sx={{ flex: 1, objectFit: 'cover' }}
+                                            />
+                                            <Card.Body sx={{ flex: '0 1 auto', overflowY: 'auto' }}>
+                                                <Card.Title>{cancha.name}</Card.Title>
+                                                <Card.Text>{cancha.clubId.address}</Card.Text>
+                                                <Card.Text>{cancha.sport}</Card.Text>
+                                                <Card.Text>
+                                                    {cancha.availability.map((availability) => (
+                                                        <Typography key={Math.floor(Math.random() * 1000000)}>
+                                                            {availability.day} {availability.from} - {availability.to} ${availability.price}
+                                                        </Typography>
+                                                    ))}
+                                                </Card.Text>
+                                                <Button variant="primary" className="btn" sx={{ width: '100%' }} onClick={() => handleOpenModal(cancha)}>
+                                                    Reservar
+                                                </Button>
+                                            </Card.Body>
+                                        </Card>
+                                    </Grid>
+                                ))
+                            )}
                         </Grid>
                     </Container>
                 </Row>
