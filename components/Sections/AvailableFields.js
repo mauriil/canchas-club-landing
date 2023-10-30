@@ -50,7 +50,30 @@ const AvailableFields = (props) => {
 
     const handleReservation = () => {
         const day = selectedCancha?.availability.find((availability) => availability.key === selectedDay)?.day;
-        window.open(`https://app.canchas.club/reserva/${day}/${selectedStartTime}/${selectedEndTime}/${selectedCancha._id}`, '_blank');
+
+        const url = `https://app.canchas.club/bookings/prebooking`;
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                time: {
+                    from: selectedStartTime,
+                    to: selectedEndTime,
+                    day: day,
+                },
+                fieldId: selectedCancha._id,
+            }),
+        }).then(async (response) => {
+            const body = await response.json();
+            if (response.status === 201) {
+                window.open(`https://app.canchas.club/reserva/${body.bookingId}`, '_blank');
+            } else {
+                alert('Error al reservar');
+            }
+        });
+
     };
 
     useEffect(() => {
@@ -95,9 +118,18 @@ const AvailableFields = (props) => {
 
     const handleSearch = () => {
         setLoading(true)
-        fetch(`https://api.canchas.club/fields?`)
+        fetch(`https://api.canchas.club/fields?`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            mode: 'cors'
+        })
             .then((response) => response.json())
             .then((data) => {
+                data.forEach((cancha) => {
+                    cancha.availability = cancha.availability.filter((availability) => availability.status === 'available');
+                  });
                 setCanchas(data);
             })
             .catch((error) => {
