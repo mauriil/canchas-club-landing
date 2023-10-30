@@ -21,6 +21,7 @@ const AvailableFields = (props) => {
     const [fromTime, setFromTime] = useState('');
     const [toTime, setToTime] = useState('');
     const [selectedDay, setSelectedDay] = useState('');
+    const [isBooking, setIsBooking] = useState(false);
 
     const [selectedStartTime, setSelectedStartTime] = useState('17:00');
     const [selectedEndTime, setSelectedEndTime] = useState('17:30');
@@ -50,6 +51,7 @@ const AvailableFields = (props) => {
     };
 
     const handleReservation = () => {
+        setIsBooking(true);
         const day = selectedCancha?.availability.find((availability) => availability.key === selectedDay)?.day;
 
         const url = `https://api.canchas.club/bookings/prebooking`;
@@ -122,9 +124,9 @@ const AvailableFields = (props) => {
         let query = '';
         console.log("🚀 ~ file: AvailableFields.js:124 ~ handleSearch ~ deporte:", deporte)
         query += deporte !== 'all' ? `sport=${encodeURIComponent(deporte)}&` : ''
-        query += selectedDay !== '' ? `availability=${encodeURIComponent(selectedDay)}&`: ''
-        query += provincia !== '' ? `province=${encodeURIComponent(provincia)}&`: ''
-        query += departamento !== 'all' ? `department=${encodeURIComponent(departamento)}&`: ''
+        query += selectedDay !== '' ? `availability=${encodeURIComponent(selectedDay)}&` : ''
+        query += provincia !== '' ? `province=${encodeURIComponent(provincia)}&` : ''
+        query += departamento !== 'all' ? `department=${encodeURIComponent(departamento)}&` : ''
 
         fetch(`https://api.canchas.club/fields?${query}`, {
             method: 'GET',
@@ -137,7 +139,7 @@ const AvailableFields = (props) => {
             .then((data) => {
                 data.forEach((cancha) => {
                     cancha.availability = cancha.availability.filter((availability) => availability.status === 'available');
-                  });
+                });
                 setCanchas(data);
                 setLoading(false);
             })
@@ -284,12 +286,12 @@ const AvailableFields = (props) => {
                         </Toolbar>
                     </AppBar>
                     <Container>
-                        <Grid container spacing={2} sx={{ 
+                        <Grid container spacing={2} sx={{
                             overflowY: 'auto',
                             maxHeight: '600px',
                             alignContent: 'center',
                             justifyContent: 'center',
-                    }}>
+                        }}>
                             {loading ? (
                                 <Watch
                                     type="ThreeDots"
@@ -331,42 +333,54 @@ const AvailableFields = (props) => {
 
                 <Dialog open={openModal} onClose={handleCloseModal}>
                     <DialogTitle>Reservar {selectedCancha?.name}</DialogTitle>
-                    <DialogContent>
-                        <TextField
-                            select
-                            label="Día"
-                            value={selectedDay}
-                            onChange={(e) => setSelectedDay(e.target.value)}
-                            fullWidth
-                            sx={{ mb: 2, mt: 2 }}
-                        >
-                            {selectedCancha?.availability.map((availability) => (
-                                <MenuItem key={availability.key} value={availability.key}>
-                                    {availability.day} ({availability.from} - {availability.to}) ${availability.price}
-                                </MenuItem>
-                            ))}
-                        </TextField>
-                        <HalfHourTimeSelector
-                            fromHour={
-                                selectedCancha?.availability.find((availability) => availability.key === selectedDay)?.from
-                            }
-                            toHour={
-                                selectedCancha?.availability.find((availability) => availability.key === selectedDay)?.to
-                            }
-                            onStartTimeChange={(e) => handleStartTimeChange(e.target.value)}
-                            onEndTimeChange={(e) => handleEndTimeChange(e.target.value)}
-                            onChange={(e) => setFromTime(e.target.value)}
-                        />
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={handleCloseModal} color="primary">
-                            Cancelar
-                        </Button>
-                        <Button onClick={handleReservation} color="primary" className="btn">
-                            Reservar
-                            {/* Redireccioniar a canchas club */}
-                        </Button>
-                    </DialogActions>
+                    {isBooking ? (
+                        <DialogContent>
+                            <Watch
+                                type="ThreeDots"
+                                color="#00BFFF"
+                                height={100}
+                                width={100}
+                            />
+                        </DialogContent>
+                    ) : (
+                        <>
+                            <DialogContent>
+                                <TextField
+                                    select
+                                    label="Día"
+                                    value={selectedDay}
+                                    onChange={(e) => setSelectedDay(e.target.value)}
+                                    fullWidth
+                                    sx={{ mb: 2, mt: 2 }}
+                                >
+                                    {selectedCancha?.availability.map((availability) => (
+                                        <MenuItem key={availability.key} value={availability.key}>
+                                            {availability.day} ({availability.from} - {availability.to}) ${availability.price}
+                                        </MenuItem>
+                                    ))}
+                                </TextField>
+                                <HalfHourTimeSelector
+                                    fromHour={
+                                        selectedCancha?.availability.find((availability) => availability.key === selectedDay)?.from
+                                    }
+                                    toHour={
+                                        selectedCancha?.availability.find((availability) => availability.key === selectedDay)?.to
+                                    }
+                                    onStartTimeChange={(e) => handleStartTimeChange(e.target.value)}
+                                    onEndTimeChange={(e) => handleEndTimeChange(e.target.value)}
+                                    onChange={(e) => setFromTime(e.target.value)}
+                                />
+                            </DialogContent>
+                            <DialogActions>
+                                <Button onClick={handleCloseModal} color="primary">
+                                    Cancelar
+                                </Button>
+                                <Button onClick={handleReservation} color="primary" className="btn">
+                                    Reservar
+                                </Button>
+                            </DialogActions>
+                        </>
+                    )}
                 </Dialog>
 
             </Container>
