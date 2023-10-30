@@ -335,12 +335,20 @@ const AvailableFields = (props) => {
                     <DialogTitle>Reservar {selectedCancha?.name}</DialogTitle>
                     {isBooking ? (
                         <DialogContent>
-                            <Watch
-                                type="ThreeDots"
-                                color="#00BFFF"
-                                height={100}
-                                width={100}
-                            />
+                            <Grid container spacing={2} sx={{
+                                maxHeight: '600px',
+                                alignContent: 'center',
+                                justifyContent: 'center',
+                                height: '200px',
+                                width: '200px',
+                            }}>
+                                <Watch
+                                    type="ThreeDots"
+                                    color="#00BFFF"
+                                    height={100}
+                                    width={100}
+                                />
+                            </Grid>
                         </DialogContent>
                     ) : (
                         <>
