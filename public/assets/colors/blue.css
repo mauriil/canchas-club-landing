@@ -1,17 +1,18 @@
 a,
-h1 > a:hover, 
-h2 > a:hover, 
-h3 > a:hover, 
-h4 > a:hover, 
-h5 > a:hover, 
-h6 > a:hover,
+h1>a:hover,
+h2>a:hover,
+h3>a:hover,
+h4>a:hover,
+h5>a:hover,
+h6>a:hover,
 .custom-btn,
-.play-btn:hover > i, .play-btn:hover svg,
+.play-btn:hover>i,
+.play-btn:hover svg,
 .button-store .custom-btn:hover i,
 .button-store .custom-btn:hover p,
 .button-store .custom-btn:hover p span,
 .feature-box .box-icon .icon,
-.feature-box:hover .box-text > h4,
+.feature-box:hover .box-text>h4,
 .service-single:hover .icon,
 .service-single.service-style-2 .icon,
 .service-single.service-style-2:hover .icon,
@@ -27,31 +28,31 @@ h6 > a:hover,
 .testimonial-carousel .carousel-text .single-box i,
 .accordion .accordion-header button:not(.collapsed),
 .accordion .accordion-header button:hover,
-.blog-home .blog-col:hover .blog-text h4 > a,
+.blog-home .blog-col:hover .blog-text h4>a,
 .price-table .icon,
 .price-table:hover .plan-type,
 .contact-info .icon,
-.contact-form-result > h4,
+.contact-form-result>h4,
 footer a:hover,
 footer .footer-widgets a:hover,
-.footer-social a:hover > i,
-.post-counters li > a:hover,
-.share-btn:hover > p,
-.share-btn li:hover > a,
+.footer-social a:hover>i,
+.post-counters li>a:hover,
+.share-btn:hover>p,
+.share-btn li:hover>a,
 .nav-links a:hover,
 .sidebar .search-form button:hover,
 .sidebar .search-form button:focus,
-.sidebar ul.menu li a:hover, 
+.sidebar ul.menu li a:hover,
 .sidebar ul.menu li a:focus,
-.sidebar ul.links li a:hover, 
+.sidebar ul.links li a:hover,
 .sidebar ul.links li a:focus,
 .author-social a:hover,
 .icon.colored i {
-	color:#7c4fe0;
+	color: #4ebedd;
 }
 
 .fixed-menu .nav-menu li a:hover {
-	color:#7c4fe0 !important;
+	color: #4ebedd !important;
 }
 
 .custom-btn,
@@ -59,27 +60,27 @@ footer .footer-widgets a:hover,
 .service-single.service-style-2:hover,
 .testimonial-carousel .carousel-images .slick-center img,
 .swiper-pagination .swiper-pagination-bullet,
-.progress-heading .progress-value > span:before {
-	border-color:#7c4fe0 !important;
+.progress-heading .progress-value>span:before {
+	border-color: #4ebedd !important;
 }
 
-input:focus, 
+input:focus,
 textarea:focus,
-input.notice, 
+input.notice,
 textarea.notice {
-	border-color:#7c4fe0 !important;
+	border-color: #4ebedd !important;
 }
 
 .page-loader .progress {
-	border-left-color:#7c4fe0;
+	border-left-color: #4ebedd;
 }
 
 .user-comment.bypostauthor .user-comment-inner:after {
-	border-top-color:#7c4fe0 !important;
+	border-top-color: #4ebedd !important;
 }
 
 .banner:before {
-	background:linear-gradient(-47deg, #7c4fe0 0%, #4528dc 100%);
+	background: linear-gradient(-47deg, #4ebedd 0%, #4528dc 100%);
 }
 
 .btn,
@@ -95,8 +96,8 @@ textarea.notice {
 .search-wrapper .search-close-btn:hover:before,
 .search-wrapper .search-close-btn:hover:after,
 .blog-home .blog-col:hover .blog-category,
-.page-title .blog-category > a:hover,
-.pagination li a.active, 
+.page-title .blog-category>a:hover,
+.pagination li a.active,
 .pagination li a:hover,
 .pagination li:last-child a,
 .pagination li:first-child a,
@@ -105,28 +106,94 @@ textarea.notice {
 .author-social a:hover,
 .member-info:after,
 .progress .progress-bar,
-.progress-heading .progress-value > span,
+.progress-heading .progress-value>span,
 .tags .tag:hover,
 blockquote {
-	background-color:#7c4fe0 !important;
+	background-color: #4ebedd !important;
 }
 
 .btn:hover,
-#zoom-in:hover, 
+#zoom-in:hover,
 #zoom-out:hover,
-.pagination li a:hover,	
-.pagination li a.active, 
+.pagination li a:hover,
+.pagination li a.active,
 .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
-	background-color:#5f36bb !important;
+	background-color: #32d9cb !important;
 }
 
-#zoom-in, 
+#zoom-in,
 #zoom-out,
 .team-member .team-social {
-	background-color:rgba(124, 79, 224, 0.85);
+	background-color: rgba(124, 79, 224, 0.85);
 }
 
+.available-day {
+	background-color: #4ebedd;
+}
 
+.react-calendar__month-view__days__day--neighboringMonth {
+	/* Estilo para números de días en el mes anterior y siguiente */
+	color: #ccc;
+	/* Cambia el color de los números de días en el mes anterior y siguiente */
+}
 
+.react-calendar__month-view__days__day--weekend {
+	/* Estilo para números de días en el fin de semana */
+	color: #000;
+	/* Cambia el color de los números de días en el fin de semana */
+}
 
+.react-calendar__month-view__days__day {
+	/* Estilo para números de días en el mes actual */
+	color: #000;
+}
 
+.available-day {
+	color: #fff;
+	transition: background-color 0.2s;
+}
+
+.available-day:hover {
+	color: #000;
+	background-color: #3a7da4;
+	/* Cambia your-hover-color al color deseado para el hover */
+}
+
+.react-calendar__tile--hover {
+	background-color: #3a7da4;
+	/* Cambia your-hover-color al color deseado para el hover */
+}
+
+.react-calendar__tile--active,
+.react-calendar__tile--focus {
+	background-color: #3a7da4;
+	/* Cambia your-selected-color al color deseado para el día seleccionado */
+}
+
+.content-container {
+	display: flex;
+	/* Hace que el contenedor sea flexible */
+	flex-direction: column;
+	/* Coloca los elementos en columnas */
+	align-items: center;
+	/* Centra horizontalmente los elementos */
+	justify-content: center;
+	/* Centra verticalmente los elementos */
+	text-align: center;
+	/* Centra el contenido de texto */
+}
+
+.available-hours {
+	background-color: #f5f5f5;
+	padding: 10px;
+	margin: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+/* Estilo para cuando el cursor está sobre el elemento */
+.available-hours:hover {
+	background-color: #3a7da4;
+	/* Cambia el color al que desees cuando pasa el cursor */
+	color: #fff;
+}
