@@ -36,7 +36,7 @@ const ClubInfo = () => {
   return (
     <>
       {loading && <Loader />}
-      {clubData.length > 0 && !loading ? (
+      {clubData.length > 0 ? (
         <>
           <Layout
             pageTitle={clubData[0].clubId?.name}
