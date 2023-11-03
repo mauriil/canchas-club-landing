@@ -35,7 +35,7 @@ const ClubInfo = () => {
 
   return (
     <>
-      {loading && <Loader />}
+      {/* {loading && <Loader />} */}
       {clubData.length > 0 ? (
         <>
           <Layout
