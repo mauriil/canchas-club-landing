@@ -23,9 +23,12 @@ const Layout = (props) => {
 
 	// Color schema
 	addStyleSheet(props.colorSchema);
+
+	// Club logo
+	const ogImage = props.clubLogo ? props.clubLogo : "https://canchas-club.s3.amazonaws.com/CanchasClub_IdentidadMarca/LOGO/_png/CanchasClub_Logo_FondoColor-09.png";
 	return (
 		<div>
-			
+
 			<Head>
 
 				/* Meta */
@@ -36,8 +39,8 @@ const Layout = (props) => {
 				<meta property="og:type" content="website" />
 				<meta property="og:title" content="Canchas Club" />
 				<meta property="og:description" content="Encuentra y Reserva Canchas Deportivas en Argentina" />
-				<meta property="og:image" content="https://canchas-club.s3.amazonaws.com/CanchasClub_IdentidadMarca/LOGO/_png/CanchasClub_Logo_FondoColor-09.png" />
-				<meta property="og:image:secure_url" content="https://canchas-club.s3.amazonaws.com/CanchasClub_IdentidadMarca/LOGO/_png/CanchasClub_Logo_FondoColor-09.png" />
+				<meta property="og:image" content={ogImage} />
+				<meta property="og:image:secure_url" content={ogImage} />
 				<meta property="og:image:width" content="1200" />
 				<meta property="og:image:height" content="630" />
 				<meta property='og:image:type' content='image/png' />

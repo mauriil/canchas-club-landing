@@ -34,24 +34,27 @@ const ClubInfo = () => {
   }, []);
 
   return (
-    <Layout
-      pageTitle="Naxos - Worker"
-      colorSchema="/assets/colors/blue.css"
-    >
-      <Loader />
+    <>
       {loading && <Loader />}
       {clubData.length > 0 && (
         <>
-          <PageTitle clubName={clubData[0].clubId?.name} clubImage={clubData[0]?.clubId?.logo} />
-          {clubData.map((cancha) => (
-            <CanchaInfo canchaData={cancha}/>
-          ))}
-          <ClubInfoFooter clubData={clubData[0].clubId}/>
-          <Footer />
+          <Layout
+            pageTitle={clubData[0].clubId?.name}
+            colorSchema="/assets/colors/blue.css"
+            clubLogo={clubData[0].clubId?.logo} 
+          >
+            <Loader />
+            <PageTitle clubName={clubData[0].clubId?.name} clubImage={clubData[0]?.clubId?.logo} />
+            {clubData.map((cancha) => (
+              <CanchaInfo canchaData={cancha} />
+            ))}
+            <ClubInfoFooter clubData={clubData[0].clubId} />
+            <Footer />
+            <ToTop />
+          </Layout>
         </>
       )}
-      <ToTop />
-    </Layout>
+    </>
   );
 };
 
