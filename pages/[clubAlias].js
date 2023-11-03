@@ -1,12 +1,12 @@
 import Layout from "../components/Sections/Layout";
 import Loader from "../components/Sections/Loader";
-import Header from "../components/Sections/Header";
 import PageTitle from "../components/ClubAlias/PageTitle";
 import CanchaInfo from "../components/ClubAlias/CanchaInfo";
 import ClubInfoFooter from "../components/ClubAlias/ClubInfoFooter";
 import Footer from "../components/Sections/Footer";
 import ToTop from "../components/Sections/ToTop";
 import { useEffect, useState } from "react";
+import ErrorPage from "../components/404/ErrorPage";
 
 const ClubInfo = () => {
   const [clubData, setClubData] = useState([]);
@@ -36,7 +36,7 @@ const ClubInfo = () => {
   return (
     <>
       {loading && <Loader />}
-      {clubData.length > 0 && (
+      {clubData.length > 0 && !loading ? (
         <>
           <Layout
             pageTitle={clubData[0].clubId?.name}
@@ -49,6 +49,17 @@ const ClubInfo = () => {
               <CanchaInfo canchaData={cancha} />
             ))}
             <ClubInfoFooter clubData={clubData[0].clubId} />
+            <Footer />
+            <ToTop />
+          </Layout>
+        </>
+      ) : (
+        <>
+          <Layout
+            pageTitle="Canchas Club"
+            colorSchema="/assets/colors/blue.css"
+          >
+            <ErrorPage />
             <Footer />
             <ToTop />
           </Layout>
