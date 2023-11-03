@@ -24,7 +24,6 @@ const ClubInfo = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("🚀 ~ file: [clubAlias].js:24 ~ .then ~ data:", data);
         setClubData(data);
         setLoading(false);
       })
@@ -35,15 +34,13 @@ const ClubInfo = () => {
 
   return (
     <>
-      {/* {loading && <Loader />} */}
-      {clubData.length > 0 ? (
+      {clubData.length > 0 && !loading ? (
         <>
           <Layout
             pageTitle={clubData[0].clubId?.name}
             colorSchema="/assets/colors/blue.css"
             clubLogo={clubData[0].clubId?.logo} 
           >
-            <Loader />
             <PageTitle clubName={clubData[0].clubId?.name} clubImage={clubData[0]?.clubId?.logo} />
             {clubData.map((cancha) => (
               <CanchaInfo canchaData={cancha} />
@@ -53,7 +50,7 @@ const ClubInfo = () => {
             <ToTop />
           </Layout>
         </>
-      ) : (
+      ) : loading ? (<Loader />) : (
         <>
           <Layout
             pageTitle="Canchas Club"
@@ -61,7 +58,6 @@ const ClubInfo = () => {
           >
             <ErrorPage />
             <Footer />
-            <ToTop />
           </Layout>
         </>
       )}
