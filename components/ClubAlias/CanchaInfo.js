@@ -52,8 +52,8 @@ const CanchaInfo = (props) => {
 		setIsBooking(true);
 		const day = props.canchaData.availability.find((availability) => availability.key === dateKey)?.day;
 
-		// const url = `https://api.canchas.club/bookings/prebooking`;
-		const url = `http://localhost:3000/bookings/prebooking`;
+		// const url = `http://localhost:3000/bookings/prebooking`;
+		const url = `https://api.canchas.club/bookings/prebooking`;
 		fetch(url, {
 			method: 'POST',
 			headers: {
