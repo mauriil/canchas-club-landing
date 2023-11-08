@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 
-const HalfHourTimeSelector = ({ startTime, endTime, onStartTimeChange, onEndTimeChange, fromHour, toHour }) => {
+const HalfHourTimeSelector = ({ day, startTime, endTime, onStartTimeChange, onEndTimeChange, fromHour, toHour }) => {
+  const currentTime = new Date();
+  const selectedDay = new Date(day);
   const [halfHourOptions, setHalfHourOptions] = useState([]);
 
   useEffect(() => {
@@ -11,6 +13,31 @@ const HalfHourTimeSelector = ({ startTime, endTime, onStartTimeChange, onEndTime
   const generateHalfHourOptions = () => {
     const options = [];
     let currentHour = fromHour;
+    // begin while loop frim current time plus half hour if currentHour is less than current time
+    if (
+      currentTime > selectedDay &&
+      currentTime.getHours() > parseInt(currentHour.split(':')[0], 10)
+      ) {
+      const [hour, minutes, secondAndPMAM] = currentTime.toLocaleTimeString({
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true,
+        region: 'es-AR',
+      }).split(':');
+      const [second, PMAM] = secondAndPMAM.split(' ');
+      let correctHour = hour;
+      if (PMAM === 'PM') {
+        correctHour = (parseInt(hour, 10) + 12).toString().padStart(2, '0');
+      }
+      const nextMinutes = parseInt(minutes, 10) + 30;
+      if (nextMinutes >= 60) {
+        const nextHour = (parseInt(correctHour, 10) + 1).toString().padStart(2, '0');
+        currentHour = `${nextHour}:00`;
+      } else {
+        const nextMinutesStr = nextMinutes.toString().padStart(2, '0');
+        currentHour = `${correctHour}:30`;
+      }
+    }
     while (currentHour <= toHour) {
       options.push(currentHour);
       const [hour, minutes] = currentHour.split(':');

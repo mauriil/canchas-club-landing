@@ -23,7 +23,7 @@ const CanchaInfo = (props) => {
 	};
 
 	const availableDates = props.canchaData.availability.map((availability) => {
-		return normalizeDate(availability.day);	
+		return normalizeDate(availability.day);
 	});
 
 	const handleDateClick = (date) => {
@@ -52,7 +52,8 @@ const CanchaInfo = (props) => {
 		setIsBooking(true);
 		const day = props.canchaData.availability.find((availability) => availability.key === dateKey)?.day;
 
-		const url = `https://api.canchas.club/bookings/prebooking`;
+		// const url = `https://api.canchas.club/bookings/prebooking`;
+		const url = `http://localhost:3000/bookings/prebooking`;
 		fetch(url, {
 			method: 'POST',
 			headers: {
@@ -120,8 +121,9 @@ const CanchaInfo = (props) => {
 									<h4>Precios para el {selectedDate.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</h4>
 									{props.canchaData.availability
 										.filter((availability) => normalizeDate(availability.day).toDateString() === selectedDate.toDateString())
+										.filter((availability) => availability.status === 'available')
 										.map((availability, index) => (
-											<p key={index} onClick={() => {setOpenModal(true); setDateKey(availability.key)}} className='available-hours'>
+											<p key={index} onClick={() => { setOpenModal(true); setDateKey(availability.key) }} className='available-hours'>
 												{availability.from} - {availability.to} (${availability.price})
 											</p>
 										))}
@@ -171,9 +173,10 @@ const CanchaInfo = (props) => {
 						<>
 							<DialogContent>
 								<Typography variant="body2" color="text.secondary">
-									{selectedDate && (selectedDate.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) ) }
+									{selectedDate && (selectedDate.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }))}
 								</Typography>
 								<HalfHourTimeSelector
+									day={selectedDate}
 									fromHour={
 										props.canchaData.availability.find((availability) => availability.key === dateKey)?.from
 									}
