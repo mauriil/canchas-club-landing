@@ -7,6 +7,10 @@ import 'react-calendar/dist/Calendar.css';
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Grid, MenuItem, TextField, Typography } from '@mui/material';
 import { Watch } from 'react-loader-spinner';
 import HalfHourTimeSelector from '../Sections/HalfHoursSelector';
+import Slider from "react-slick";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const CanchaInfo = (props) => {
 	const [selectedDate, setSelectedDate] = useState(null);
@@ -48,6 +52,14 @@ const CanchaInfo = (props) => {
 		}
 	};
 
+	const sliderSettings = {
+		dots: true,
+		infinite: true,
+		speed: 500,
+		slidesToShow: 1,
+		slidesToScroll: 1
+	  };
+
 	const handleReservation = () => {
 		setIsBooking(true);
 		const day = props.canchaData.availability.find((availability) => availability.key === dateKey)?.day;
@@ -88,7 +100,17 @@ const CanchaInfo = (props) => {
 
 					{/* <!-- Image --> */}
 					<Col className="col-12 col-lg-5 res-margin">
-						<img src={`https://canchas-club.s3.amazonaws.com/${props.canchaData.photos[0]}`} alt="" />
+						<Slider {...sliderSettings}>
+							{props.canchaData.photos.map((photo, index) => (
+								<div>
+									<img key={index} src={`https://canchas-club.s3.amazonaws.com/${photo}`}
+									 alt={photo}
+									 style={{ width: '100%', height: '400px', objectFit: 'cover', margin: '0 auto' }} />
+								</div>
+
+							))}
+						</Slider>
+
 					</Col>
 
 					{/* <!-- Content --> */}
