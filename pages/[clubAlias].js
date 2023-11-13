@@ -42,10 +42,10 @@ const ClubInfo = () => {
             clubLogo={clubData[0].clubId?.logo} 
           >
             <PageTitle clubName={clubData[0].clubId?.name} clubImage={clubData[0]?.clubId?.logo} />
+            <ClubInfoFooter clubData={clubData[0].clubId} />
             {clubData.map((cancha) => (
               <CanchaInfo canchaData={cancha} />
             ))}
-            <ClubInfoFooter clubData={clubData[0].clubId} />
             <Footer />
             <ToTop />
           </Layout>
