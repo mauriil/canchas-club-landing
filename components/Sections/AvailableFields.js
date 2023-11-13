@@ -72,9 +72,10 @@ const AvailableFields = (props) => {
 
     const handleReservation = () => {
         setIsBooking(true);
-        const day = selectedCancha?.availability.find((availability) => availability.key === selectedDay)?.day;
+        const day = selectedCancha.availability.find((availability) => availability.key === dateKey)?.day;
 
         const url = `https://api.canchas.club/bookings/prebooking`;
+        // const url = `http://localhost:3000/bookings/prebooking`;
         fetch(url, {
             method: 'POST',
             headers: {
@@ -358,7 +359,7 @@ const AvailableFields = (props) => {
                                                                     tile />
                                                             </>
                                                         )}
-                                                        {selectedDate && (
+                                                        {selectedDate && calendarOpen[cancha._id] &&  (
                                                             <div>
                                                                 <h4>Precios para el {selectedDate.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</h4>
                                                                 {cancha.availability
