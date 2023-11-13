@@ -56,7 +56,7 @@ const CanchaInfo = (props) => {
 		speed: 500,
 		slidesToShow: 1,
 		slidesToScroll: 1
-	  };
+	};
 
 	const handleReservation = () => {
 		setIsBooking(true);
@@ -102,8 +102,8 @@ const CanchaInfo = (props) => {
 							{props.canchaData.photos.map((photo, index) => (
 								<div>
 									<img key={index} src={`https://canchas-club.s3.amazonaws.com/${photo}`}
-									 alt={photo}
-									 style={{ width: '100%', height: '400px', objectFit: 'cover', margin: '0 auto' }} />
+										alt={photo}
+										style={{ width: '100%', height: '400px', objectFit: 'cover', margin: '0 auto' }} />
 								</div>
 
 							))}
@@ -125,6 +125,17 @@ const CanchaInfo = (props) => {
 							<button className="btn" onClick={() => setSeeDispo((value) => !value)}>{seeDispo ? 'Ocultar' : 'Ver disponibilidad'}</button>
 							{seeDispo && (
 								<div className="calendar-container">
+									<div style={{
+										display: 'flex',
+										flexDirection: 'row',
+										alignItems: 'center',
+										justifyContent: 'center',
+									}}>
+										<div className="availability-indicator" style={{ backgroundColor: '#4ebedd', width: '8px', height: '8px', marginRight: '5px' }}></div>
+										<span style={{ marginRight: '15px' }}>Disponible</span>
+										<div className="availability-indicator" style={{ backgroundColor: '#cccccc', width: '8px', height: '8px', marginRight: '5px' }}></div>
+										<span>No Disponible</span>
+									</div>
 									<Calendar
 										value={selectedDate}
 										tileDisabled={({ date }) => !availableDates.some((dateAvail) => dateAvail.toDateString() === date.toDateString())}

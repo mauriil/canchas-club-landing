@@ -67,7 +67,7 @@ const AvailableFields = (props) => {
     };
 
     const handleOpenCalendar = (canchaId) => {
-        setOpenCalendar({ [canchaId]: !calendarOpen[canchaId]});
+        setOpenCalendar({ [canchaId]: !calendarOpen[canchaId] });
     };
 
     const handleReservation = () => {
@@ -325,10 +325,10 @@ const AvailableFields = (props) => {
                                         <Card sx={{ flex: 1, display: 'flex', flexDirection: 'column' }} >
                                             {!calendarOpen[cancha._id] && (
                                                 <Card.Img
-                                                variant="top"
-                                                src={`https://canchas-club.s3.amazonaws.com/${cancha.photos[0]}`}
-                                                sx={{ flex: 1, objectFit: 'cover' }}
-                                            />)}
+                                                    variant="top"
+                                                    src={`https://canchas-club.s3.amazonaws.com/${cancha.photos[0]}`}
+                                                    sx={{ flex: 1, objectFit: 'cover' }}
+                                                />)}
                                             <Card.Body sx={{ flex: '0 1 auto', overflowY: 'auto' }}>
                                                 <Card.Title>{cancha.name}</Card.Title>
                                                 <Card.Text>{cancha.clubId.address}</Card.Text>
@@ -336,15 +336,28 @@ const AvailableFields = (props) => {
                                                 <Card.Text>
                                                     <div className="calendar-container">
                                                         {calendarOpen[cancha._id] && (
-                                                            <Calendar
-                                                            value={selectedDate}
-                                                            tileDisabled={({ date }) => !cancha.availability.some((dateAvail) => normalizeDate(dateAvail).toDateString() === date.toDateString())}
-                                                            onClickDay={handleDateClick}
-                                                            tileClassName={({ date }) => {
-                                                                return cancha.availability.some((dateAvail) => normalizeDate(dateAvail).toDateString() === date.toDateString()) ? 'available-day' : '';
-                                                            }}
-                                                            tile
-                                                        />)}
+                                                            <>
+                                                                <div style={{
+                                                                    display: 'flex',
+                                                                    flexDirection: 'row',
+                                                                    alignItems: 'center',
+                                                                    justifyContent: 'center',
+                                                                }}>
+                                                                    <div className="availability-indicator" style={{ backgroundColor: '#4ebedd', width: '8px', height: '8px', marginRight: '5px' }}></div>
+                                                                    <span style={{ marginRight: '15px' }}>Disponible</span>
+                                                                    <div className="availability-indicator" style={{ backgroundColor: '#cccccc', width: '8px', height: '8px', marginRight: '5px' }}></div>
+                                                                    <span>No Disponible</span>
+                                                                </div>
+                                                                <Calendar
+                                                                    value={selectedDate}
+                                                                    tileDisabled={({ date }) => !cancha.availability.some((dateAvail) => normalizeDate(dateAvail).toDateString() === date.toDateString())}
+                                                                    onClickDay={handleDateClick}
+                                                                    tileClassName={({ date }) => {
+                                                                        return cancha.availability.some((dateAvail) => normalizeDate(dateAvail).toDateString() === date.toDateString()) ? 'available-day' : '';
+                                                                    }}
+                                                                    tile />
+                                                            </>
+                                                        )}
                                                         {selectedDate && (
                                                             <div>
                                                                 <h4>Precios para el {selectedDate.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</h4>
@@ -361,7 +374,7 @@ const AvailableFields = (props) => {
                                                     </div>
                                                 </Card.Text>
                                                 <Button variant="primary" className="btn" sx={{ width: '100%' }} onClick={() => handleOpenCalendar(cancha._id)}>
-                                                    Reservar
+                                                    {calendarOpen[cancha._id] ? 'Ocultar' : 'Ver disponibilidad'}
                                                 </Button>
                                             </Card.Body>
                                         </Card>
@@ -394,22 +407,22 @@ const AvailableFields = (props) => {
                     ) : (
                         <>
                             <DialogContent>
-								<Typography variant="body2" color="text.secondary">
-									{selectedDate && (selectedDate.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }))}
-								</Typography>
-								<HalfHourTimeSelector
-									day={selectedDate}
-									fromHour={
-										selectedCancha?.availability.find((availability) => availability.key === dateKey)?.from
-									}
-									toHour={
-										selectedCancha?.availability.find((availability) => availability.key === dateKey)?.to
-									}
-									onStartTimeChange={(e) => handleStartTimeChange(e.target.value)}
-									onEndTimeChange={(e) => handleEndTimeChange(e.target.value)}
-									onChange={(e) => setFromTime(e.target.value)}
-								/>
-							</DialogContent>
+                                <Typography variant="body2" color="text.secondary">
+                                    {selectedDate && (selectedDate.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }))}
+                                </Typography>
+                                <HalfHourTimeSelector
+                                    day={selectedDate}
+                                    fromHour={
+                                        selectedCancha?.availability.find((availability) => availability.key === dateKey)?.from
+                                    }
+                                    toHour={
+                                        selectedCancha?.availability.find((availability) => availability.key === dateKey)?.to
+                                    }
+                                    onStartTimeChange={(e) => handleStartTimeChange(e.target.value)}
+                                    onEndTimeChange={(e) => handleEndTimeChange(e.target.value)}
+                                    onChange={(e) => setFromTime(e.target.value)}
+                                />
+                            </DialogContent>
                             <DialogActions>
                                 <Button onClick={handleCloseModal} color="primary">
                                     Cancelar
