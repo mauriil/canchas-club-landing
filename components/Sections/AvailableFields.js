@@ -5,6 +5,8 @@ import { AppBar, Button, CardContent, Dialog, DialogContent, DialogTitle, Grid, 
 import { localidades } from './locations.json';
 import HalfHourTimeSelector from './HalfHoursSelector';
 import { Watch } from 'react-loader-spinner'
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 const AvailableFields = (props) => {
     const [state, handleSubmit] = useForm("FORMSPREE_FORM_ID");
@@ -18,10 +20,24 @@ const AvailableFields = (props) => {
     const [canchas, setCanchas] = useState([]);
     const [openModal, setOpenModal] = useState(false);
     const [selectedCancha, setSelectedCancha] = useState(null);
-    const [fromTime, setFromTime] = useState('');
-    const [toTime, setToTime] = useState('');
+    const [selectedDate, setSelectedDate] = useState(null);
     const [selectedDay, setSelectedDay] = useState('');
     const [isBooking, setIsBooking] = useState(false);
+    const [dateKey, setDateKey] = useState(null);
+    const [calendarOpen, setOpenCalendar] = useState([]);
+
+    const handleDateClick = (date) => {
+        setSelectedDate(date);
+    };
+
+    const normalizeDate = (date) => {
+        const [year, month, day] = date.day.split('-').map(Number);
+        return new Date(year, month - 1, day);
+    };
+
+    // const availableDates = canchas.availability.map((availability) => {
+    // 	return normalizeDate(availability.day);
+    // });
 
     const [selectedStartTime, setSelectedStartTime] = useState('17:00');
     const [selectedEndTime, setSelectedEndTime] = useState('17:30');
@@ -48,6 +64,10 @@ const AvailableFields = (props) => {
 
     const handleCloseModal = () => {
         setOpenModal(false);
+    };
+
+    const handleOpenCalendar = (canchaId) => {
+        setOpenCalendar({ [canchaId]: !calendarOpen[canchaId]});
     };
 
     const handleReservation = () => {
@@ -122,12 +142,12 @@ const AvailableFields = (props) => {
     const handleSearch = () => {
         setLoading(true)
         let query = '';
-        console.log("🚀 ~ file: AvailableFields.js:124 ~ handleSearch ~ deporte:", deporte)
         query += deporte !== 'all' ? `sport=${encodeURIComponent(deporte)}&` : ''
         query += selectedDay !== '' ? `availability=${encodeURIComponent(selectedDay)}&` : ''
         query += provincia !== '' ? `province=${encodeURIComponent(provincia)}&` : ''
         query += departamento !== 'all' ? `department=${encodeURIComponent(departamento)}&` : ''
 
+        // fetch(`http://localhost:3000/fields?${query}`, {
         fetch(`https://api.canchas.club/fields?${query}`, {
             method: 'GET',
             headers: {
@@ -139,6 +159,7 @@ const AvailableFields = (props) => {
             .then((data) => {
                 data.forEach((cancha) => {
                     cancha.availability = cancha.availability.filter((availability) => availability.status === 'available');
+                    setOpenCalendar({ [cancha._id]: false });
                 });
                 setCanchas(data);
                 setLoading(false);
@@ -288,7 +309,6 @@ const AvailableFields = (props) => {
                     <Container>
                         <Grid container spacing={2} sx={{
                             overflowY: 'auto',
-                            maxHeight: '600px',
                             alignContent: 'center',
                             justifyContent: 'center',
                         }}>
@@ -303,23 +323,44 @@ const AvailableFields = (props) => {
                                 canchas.map((cancha) => (
                                     <Grid item xs={12} sm={6} md={4} lg={3} key={cancha.id} sx={{ display: 'flex' }}>
                                         <Card sx={{ flex: 1, display: 'flex', flexDirection: 'column' }} >
-                                            <Card.Img
+                                            {!calendarOpen[cancha._id] && (
+                                                <Card.Img
                                                 variant="top"
                                                 src={`https://canchas-club.s3.amazonaws.com/${cancha.photos[0]}`}
                                                 sx={{ flex: 1, objectFit: 'cover' }}
-                                            />
+                                            />)}
                                             <Card.Body sx={{ flex: '0 1 auto', overflowY: 'auto' }}>
                                                 <Card.Title>{cancha.name}</Card.Title>
                                                 <Card.Text>{cancha.clubId.address}</Card.Text>
                                                 <Card.Text>{cancha.sport}</Card.Text>
                                                 <Card.Text>
-                                                    {cancha.availability.map((availability) => (
-                                                        <Typography key={Math.floor(Math.random() * 1000000)}>
-                                                            {availability.day} {availability.from} - {availability.to} ${availability.price}
-                                                        </Typography>
-                                                    ))}
+                                                    <div className="calendar-container">
+                                                        {calendarOpen[cancha._id] && (
+                                                            <Calendar
+                                                            value={selectedDate}
+                                                            tileDisabled={({ date }) => !cancha.availability.some((dateAvail) => normalizeDate(dateAvail).toDateString() === date.toDateString())}
+                                                            onClickDay={handleDateClick}
+                                                            tileClassName={({ date }) => {
+                                                                return cancha.availability.some((dateAvail) => normalizeDate(dateAvail).toDateString() === date.toDateString()) ? 'available-day' : '';
+                                                            }}
+                                                            tile
+                                                        />)}
+                                                        {selectedDate && (
+                                                            <div>
+                                                                <h4>Precios para el {selectedDate.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</h4>
+                                                                {cancha.availability
+                                                                    .filter((availability) => normalizeDate(availability).toDateString() === selectedDate.toDateString())
+                                                                    .filter((availability) => availability.status === 'available')
+                                                                    .map((availability, index) => (
+                                                                        <p key={index} onClick={() => { handleOpenModal(cancha); setDateKey(availability.key) }} className='available-hours'>
+                                                                            {availability.from} - {availability.to} (${availability.price})
+                                                                        </p>
+                                                                    ))}
+                                                            </div>
+                                                        )}
+                                                    </div>
                                                 </Card.Text>
-                                                <Button variant="primary" className="btn" sx={{ width: '100%' }} onClick={() => handleOpenModal(cancha)}>
+                                                <Button variant="primary" className="btn" sx={{ width: '100%' }} onClick={() => handleOpenCalendar(cancha._id)}>
                                                     Reservar
                                                 </Button>
                                             </Card.Body>
@@ -353,32 +394,22 @@ const AvailableFields = (props) => {
                     ) : (
                         <>
                             <DialogContent>
-                                <TextField
-                                    select
-                                    label="Día"
-                                    value={selectedDay}
-                                    onChange={(e) => setSelectedDay(e.target.value)}
-                                    fullWidth
-                                    sx={{ mb: 2, mt: 2 }}
-                                >
-                                    {selectedCancha?.availability.map((availability) => (
-                                        <MenuItem key={availability.key} value={availability.key}>
-                                            {availability.day} ({availability.from} - {availability.to}) ${availability.price}
-                                        </MenuItem>
-                                    ))}
-                                </TextField>
-                                <HalfHourTimeSelector
-                                    fromHour={
-                                        selectedCancha?.availability.find((availability) => availability.key === selectedDay)?.from
-                                    }
-                                    toHour={
-                                        selectedCancha?.availability.find((availability) => availability.key === selectedDay)?.to
-                                    }
-                                    onStartTimeChange={(e) => handleStartTimeChange(e.target.value)}
-                                    onEndTimeChange={(e) => handleEndTimeChange(e.target.value)}
-                                    onChange={(e) => setFromTime(e.target.value)}
-                                />
-                            </DialogContent>
+								<Typography variant="body2" color="text.secondary">
+									{selectedDate && (selectedDate.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }))}
+								</Typography>
+								<HalfHourTimeSelector
+									day={selectedDate}
+									fromHour={
+										selectedCancha?.availability.find((availability) => availability.key === dateKey)?.from
+									}
+									toHour={
+										selectedCancha?.availability.find((availability) => availability.key === dateKey)?.to
+									}
+									onStartTimeChange={(e) => handleStartTimeChange(e.target.value)}
+									onEndTimeChange={(e) => handleEndTimeChange(e.target.value)}
+									onChange={(e) => setFromTime(e.target.value)}
+								/>
+							</DialogContent>
                             <DialogActions>
                                 <Button onClick={handleCloseModal} color="primary">
                                     Cancelar

@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { format } from 'date-fns';
-import { es } from 'date-fns/locale';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Grid, MenuItem, TextField, Typography } from '@mui/material';
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Grid, Typography } from '@mui/material';
 import { Watch } from 'react-loader-spinner';
 import HalfHourTimeSelector from '../Sections/HalfHoursSelector';
 import Slider from "react-slick";
