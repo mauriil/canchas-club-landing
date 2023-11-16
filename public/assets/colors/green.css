@@ -158,6 +158,11 @@ blockquote {
 	/* Cambia your-hover-color al color deseado para el hover */
 }
 
+.unavailable-day {
+	background-color: rgb(9, 50, 86);
+	color: white;
+}
+
 .react-calendar__tile--hover {
 	background-color: #3a7da4;
 	/* Cambia your-hover-color al color deseado para el hover */

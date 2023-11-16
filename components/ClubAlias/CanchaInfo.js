@@ -25,7 +25,7 @@ const CanchaInfo = (props) => {
 	};
 
 	const availableDates = props.canchaData.availability.map((availability) => {
-		return normalizeDate(availability.day);
+		return { day: normalizeDate(availability.day), status: availability.status };
 	});
 
 	const handleDateClick = (date) => {
@@ -138,10 +138,14 @@ const CanchaInfo = (props) => {
 									</div>
 									<Calendar
 										value={selectedDate}
-										tileDisabled={({ date }) => !availableDates.some((dateAvail) => dateAvail.toDateString() === date.toDateString())}
+										tileDisabled={({ date }) => !availableDates.some((dateAvail) => dateAvail.day.toDateString() === date.toDateString())}
 										onClickDay={handleDateClick}
 										tileClassName={({ date }) => {
-											return availableDates.some((dateAvail) => dateAvail.toDateString() === date.toDateString()) ? 'available-day' : '';
+											return availableDates.some((dateAvail) => dateAvail.day.toDateString() === date.toDateString() && dateAvail.status === 'available') ?
+												'available-day'
+												: availableDates.some((dateAvail) => dateAvail.day.toDateString() === date.toDateString()) ?
+													'unavailable-day'
+													: '';
 										}}
 										tile
 									/>
@@ -152,10 +156,16 @@ const CanchaInfo = (props) => {
 									<h4>Precios para el {selectedDate.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</h4>
 									{props.canchaData.availability
 										.filter((availability) => normalizeDate(availability.day).toDateString() === selectedDate.toDateString())
-										.filter((availability) => availability.status === 'available')
+										.filter((availability) => availability.status === 'available' || availability.status === 'closed')
 										.map((availability, index) => (
-											<p key={index} onClick={() => { setOpenModal(true); setDateKey(availability.key) }} className='available-hours'>
-												{availability.from} - {availability.to} (${availability.price})
+											<p key={index} onClick={() => {
+												if (availability.status === 'available') {
+													setOpenModal(true); setDateKey(availability.key)
+												}
+											}} className='available-hours'>
+												{availability.from} - {availability.to} ({
+													availability.status === 'available' ? `$${availability.price}` : 'Cerrado'
+												})
 											</p>
 										))}
 								</div>
