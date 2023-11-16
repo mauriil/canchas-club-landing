@@ -359,15 +359,21 @@ const AvailableFields = (props) => {
                                                                     tile />
                                                             </>
                                                         )}
-                                                        {selectedDate && calendarOpen[cancha._id] &&  (
+                                                        {selectedDate && calendarOpen[cancha._id] && (
                                                             <div>
                                                                 <h4>Precios para el {selectedDate.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</h4>
                                                                 {cancha.availability
-                                                                    .filter((availability) => normalizeDate(availability).toDateString() === selectedDate.toDateString())
-                                                                    .filter((availability) => availability.status === 'available')
+                                                                    .filter((availability) => normalizeDate(availability.day).toDateString() === selectedDate.toDateString())
+                                                                    .filter((availability) => availability.status === 'available' || availability.status === 'closed')
                                                                     .map((availability, index) => (
-                                                                        <p key={index} onClick={() => { handleOpenModal(cancha); setDateKey(availability.key) }} className='available-hours'>
-                                                                            {availability.from} - {availability.to} (${availability.price})
+                                                                        <p key={index} onClick={() => {
+                                                                            if (availability.status === 'available') {
+                                                                                setOpenModal(true); setDateKey(availability.key)
+                                                                            }
+                                                                        }} className='available-hours'>
+                                                                            {availability.from} - {availability.to} ({
+                                                                                availability.status === 'available' ? `$${availability.price}` : 'Cerrado'
+                                                                            })
                                                                         </p>
                                                                     ))}
                                                             </div>
