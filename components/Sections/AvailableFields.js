@@ -7,6 +7,7 @@ import HalfHourTimeSelector from './HalfHoursSelector';
 import { Watch } from 'react-loader-spinner'
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import { sports } from './dicctionary.json'
 
 const AvailableFields = (props) => {
     const [state, handleSubmit] = useForm("FORMSPREE_FORM_ID");
@@ -226,7 +227,7 @@ const AvailableFields = (props) => {
                                     justifyContent: 'center',
 
                                 }}>
-                                    <Grid item xs={12} sm={2}>
+                                    {/* <Grid item xs={12} sm={2}>
                                         <Typography variant="body1">Fecha</Typography>
                                         <TextField
                                             type="date"
@@ -247,7 +248,7 @@ const AvailableFields = (props) => {
                                             onChange={(e) => setHoraDesde(e.target.value)}
                                             InputLabelProps={{ shrink: true }}
                                         />
-                                    </Grid>
+                                    </Grid> */}
                                     <Grid item xs={12} sm={2} >
                                         <Typography variant="body1">Provincia</Typography>
                                         <Select
@@ -348,7 +349,7 @@ const AvailableFields = (props) => {
                                             <Card.Body sx={{ flex: '0 1 auto', overflowY: 'auto' }}>
                                                 <Card.Title>{cancha.name}</Card.Title>
                                                 <Card.Text>{cancha.clubId.address}</Card.Text>
-                                                <Card.Text>{cancha.sport}</Card.Text>
+                                                <Card.Text>{sports[cancha.sport]}</Card.Text>
                                                 <Card.Text>
                                                     <div className="calendar-container">
                                                         {calendarOpen[cancha._id] && (

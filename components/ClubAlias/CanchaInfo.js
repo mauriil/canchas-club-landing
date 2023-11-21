@@ -6,6 +6,7 @@ import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Grid, Typogr
 import { Watch } from 'react-loader-spinner';
 import HalfHourTimeSelector from '../Sections/HalfHoursSelector';
 import Slider from "react-slick";
+import { sports, fieldType, floorType } from './dicctionary.json'
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -188,13 +189,13 @@ const CanchaInfo = (props) => {
 
 						<ul className="member-info">
 							<li>
-								<strong>Deporte:</strong> {props.canchaData.sport}
+								<strong>Deporte:</strong> {sports[props.canchaData.sport]}
 							</li>
 							<li>
-								<strong>Tipo de cancha:</strong> {props.canchaData.fieldType}
+								<strong>Tipo de cancha:</strong> {fieldType[props.canchaData.fieldType]}
 							</li>
 							<li>
-								<strong>Tipo de piso:</strong> {props.canchaData.floorType}
+								<strong>Tipo de piso:</strong> {floorType[props.canchaData.floorType]}
 							</li>
 							<li>
 								<strong>Iluminación:</strong> {props.canchaData.illumination ? 'Si' : 'No'}
