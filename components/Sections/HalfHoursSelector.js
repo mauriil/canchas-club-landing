@@ -50,6 +50,9 @@ const HalfHourTimeSelector = ({ day, startTime, endTime, onStartTimeChange, onEn
         currentHour = `${hour}:${nextMinutesStr}`;
       }
     }
+    if (toHour === '23:59') {
+      options.push('23:59');
+    }
     setHalfHourOptions(options);
   };
 

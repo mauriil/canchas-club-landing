@@ -80,7 +80,7 @@ const AvailableFields = (props) => {
 		const startTime = new Date(`01/01/2007 ${selectedStartTime}`);
 		const endTime = new Date(`01/01/2007 ${selectedEndTime}`);
 		const difference = endTime - startTime;
-		if (difference < 3600000) {
+		if (difference < 1920000) {
 			setHalfHourError(true);
 			return;
 		}
@@ -109,6 +109,7 @@ const AvailableFields = (props) => {
                 window.location.href = `https://app.canchas.club/reserva/${body.bookingId}`;
             } else {
                 alert('Error al reservar');
+                setIsBooking(false);
             }
         });
 
