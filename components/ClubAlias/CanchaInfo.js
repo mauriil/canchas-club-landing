@@ -226,7 +226,8 @@ const CanchaInfo = (props) => {
 									}
 									onStartTimeChange={(e) => handleStartTimeChange(e.target.value)}
 									onEndTimeChange={(e) => handleEndTimeChange(e.target.value)}
-									onChange={(e) => setFromTime(e.target.value)}
+									startTime={selectedStartTime}
+									endTime={selectedEndTime}
 								/>
 							</DialogContent>
 							<DialogActions>

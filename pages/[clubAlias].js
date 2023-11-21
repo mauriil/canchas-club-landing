@@ -14,8 +14,8 @@ const ClubInfo = () => {
 
   useEffect(() => {
     const clubAlias = window.location.pathname.split('/')[1];
-    // fetch(`http://localhost:3000/clubs/alias/${clubAlias}`, {
-    fetch(`https://api.canchas.club/clubs/alias/${clubAlias}`, {
+    fetch(`http://localhost:3000/clubs/alias/${clubAlias}`, {
+    // fetch(`https://api.canchas.club/clubs/alias/${clubAlias}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
