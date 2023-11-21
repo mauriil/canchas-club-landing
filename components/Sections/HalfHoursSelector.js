@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 
-const HalfHourTimeSelector = ({ day, startTime, endTime, onStartTimeChange, onEndTimeChange, fromHour, toHour }) => {
+const HalfHourTimeSelector = ({ day, startTime, endTime, onStartTimeChange, onEndTimeChange, fromHour, toHour, halfHourError }) => {
   const currentTime = new Date();
   const selectedDay = new Date(day);
   const [halfHourOptions, setHalfHourOptions] = useState([]);
@@ -57,7 +57,7 @@ const HalfHourTimeSelector = ({ day, startTime, endTime, onStartTimeChange, onEn
     <>
       <FormControl sx={{ mb: 2, mt: 2, width: '50%' }}>
         <InputLabel>Desde</InputLabel>
-        <Select value={startTime} onChange={onStartTimeChange}>
+        <Select value={startTime} onChange={onStartTimeChange} error={halfHourError}>
           {halfHourOptions.map((option) => (
             <MenuItem key={option} value={option}>
               {option}
@@ -67,7 +67,7 @@ const HalfHourTimeSelector = ({ day, startTime, endTime, onStartTimeChange, onEn
       </FormControl>
       <FormControl sx={{ mb: 2, mt: 2, width: '50%' }}>
         <InputLabel>Hasta</InputLabel>
-        <Select value={endTime} onChange={onEndTimeChange}>
+        <Select value={endTime} onChange={onEndTimeChange} error={halfHourError}>
           {halfHourOptions.map((option) => (
             <MenuItem key={option} value={option}>
               {option}
@@ -75,6 +75,9 @@ const HalfHourTimeSelector = ({ day, startTime, endTime, onStartTimeChange, onEn
           ))}
         </Select>
       </FormControl>
+      {halfHourError && (
+        <p className="error">El turno debe ser de 1 hora mínimo</p>
+      )}
     </>
   );
 };

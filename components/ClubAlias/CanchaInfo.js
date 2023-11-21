@@ -18,6 +18,7 @@ const CanchaInfo = (props) => {
 	const [selectedEndTime, setSelectedEndTime] = useState('17:30');
 	const [isBooking, setIsBooking] = useState(false);
 	const [dateKey, setDateKey] = useState(null);
+	const [halfHourError, setHalfHourError] = useState(false);
 
 	const normalizeDate = (date) => {
 		const [year, month, day] = date.split('-').map(Number);
@@ -33,6 +34,7 @@ const CanchaInfo = (props) => {
 	};
 
 	const handleCloseModal = () => {
+		setHalfHourError(false);
 		setOpenModal(false);
 	};
 
@@ -59,6 +61,17 @@ const CanchaInfo = (props) => {
 	};
 
 	const handleReservation = () => {
+		if (selectedStartTime === selectedEndTime) {
+			setHalfHourError(true);
+			return;
+		}
+		const startTime = new Date(`01/01/2007 ${selectedStartTime}`);
+		const endTime = new Date(`01/01/2007 ${selectedEndTime}`);
+		const difference = endTime - startTime;
+		if (difference < 3600000) {
+			setHalfHourError(true);
+			return;
+		}
 		setIsBooking(true);
 		const day = props.canchaData.availability.find((availability) => availability.key === dateKey)?.day;
 
@@ -228,6 +241,7 @@ const CanchaInfo = (props) => {
 									onEndTimeChange={(e) => handleEndTimeChange(e.target.value)}
 									startTime={selectedStartTime}
 									endTime={selectedEndTime}
+									halfHourError={halfHourError}
 								/>
 							</DialogContent>
 							<DialogActions>
