@@ -28,6 +28,7 @@ const AvailableFields = (props) => {
     const [calendarOpen, setOpenCalendar] = useState([]);
     const [halfHourError, setHalfHourError] = useState(false);
     const resultsSectionRef = useRef(null);
+    const [noAvailableHours, setNoAvailableHours] = useState(false);
 
     const handleDateClick = (date) => {
         setSelectedDate(date);
@@ -391,7 +392,7 @@ const AvailableFields = (props) => {
                                                                         .filter((availability) => normalizeDate(availability).toDateString() === selectedDate.toDateString())
                                                                         .filter((availability) => availability.status === 'available')
                                                                         .map((availability, index) => (
-                                                                            <p key={index} onClick={() => { handleOpenModal(cancha); setDateKey(availability.key) }} className='available-hours'>
+                                                                            <p key={index} onClick={() => { handleOpenModal(cancha); setDateKey(availability.key); setNoAvailableHours(false); }} className='available-hours'>
                                                                                 {availability.from} - {availability.to} (${availability.price})
                                                                             </p>
                                                                         ))}
@@ -450,15 +451,23 @@ const AvailableFields = (props) => {
                                     startTime={selectedStartTime}
                                     endTime={selectedEndTime}
                                     halfHourError={halfHourError}
+                                    noAvailableHours={() => setNoAvailableHours(true)}
                                 />
                             </DialogContent>
                             <DialogActions>
-                                <Button onClick={handleCloseModal} color="primary">
-                                    Cancelar
-                                </Button>
-                                <Button onClick={handleReservation} color="primary" className="btn">
-                                    Reservar
-                                </Button>
+                                {noAvailableHours ? (
+                                    <Button onClick={handleCloseModal} color="primary">
+                                        Aceptar
+                                    </Button>
+                                ) : (
+                                    <>
+                                        <Button onClick={handleCloseModal} color="primary">
+                                            Cancelar
+                                        </Button><Button onClick={handleReservation} color="primary" className="btn">
+                                            Reservar
+                                        </Button>
+                                    </>
+                                )}
                             </DialogActions>
                         </>
                     )}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import { FormControl, InputLabel, Select, MenuItem, Container, Typography } from '@mui/material';
 
-const HalfHourTimeSelector = ({ day, startTime, endTime, onStartTimeChange, onEndTimeChange, fromHour, toHour, halfHourError }) => {
+const HalfHourTimeSelector = ({ day, startTime, endTime, onStartTimeChange, onEndTimeChange, fromHour, toHour, halfHourError, noAvailableHours }) => {
   const currentTime = new Date();
   const selectedDay = new Date(day);
   const [halfHourOptions, setHalfHourOptions] = useState([]);
@@ -17,7 +17,7 @@ const HalfHourTimeSelector = ({ day, startTime, endTime, onStartTimeChange, onEn
     if (
       currentTime > selectedDay &&
       currentTime.getHours() > parseInt(currentHour.split(':')[0], 10)
-      ) {
+    ) {
       const [hour, minutes, secondAndPMAM] = currentTime.toLocaleTimeString({
         hour: '2-digit',
         minute: '2-digit',
@@ -54,34 +54,56 @@ const HalfHourTimeSelector = ({ day, startTime, endTime, onStartTimeChange, onEn
       options.push('23:59');
     }
     setHalfHourOptions(options);
+
+    if (options.length === 0) {
+      noAvailableHours();
+    }
   };
 
   return (
-    <>
-      <FormControl sx={{ mb: 2, mt: 2, width: '50%' }}>
-        <InputLabel>Desde</InputLabel>
-        <Select value={startTime} onChange={onStartTimeChange} error={halfHourError}>
-          {halfHourOptions.map((option) => (
-            <MenuItem key={option} value={option}>
-              {option}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-      <FormControl sx={{ mb: 2, mt: 2, width: '50%' }}>
-        <InputLabel>Hasta</InputLabel>
-        <Select value={endTime} onChange={onEndTimeChange} error={halfHourError}>
-          {halfHourOptions.map((option) => (
-            <MenuItem key={option} value={option}>
-              {option}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-      {halfHourError && (
-        <p className="error">El turno debe ser de 1 hora mínimo</p>
-      )}
-    </>
+      halfHourOptions.length === 0 ? (
+        <Container sx={{
+          mt: 2,
+          mb: 2,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: '100%',
+        }}>
+          <Typography sx={{
+            fontSize: '1rem',
+            fontWeight: 'bold',
+            textAlign: 'center',
+          }}>Lo sentimos, los horarios disponibles para reserva ya han pasado. ¿Podrías intentar buscar en otro día o elegir una franja horaria diferente?</Typography>
+        </Container>
+      )
+        : (
+          <>
+            <FormControl sx={{ mb: 2, mt: 2, width: '50%' }}>
+              <InputLabel>Desde</InputLabel>
+              <Select value={startTime} onChange={onStartTimeChange} error={halfHourError}>
+                {halfHourOptions.map((option) => (
+                  <MenuItem key={option} value={option}>
+                    {option}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl><FormControl sx={{ mb: 2, mt: 2, width: '50%' }}>
+              <InputLabel>Hasta</InputLabel>
+              <Select value={endTime} onChange={onEndTimeChange} error={halfHourError}>
+                {halfHourOptions.map((option) => (
+                  <MenuItem key={option} value={option}>
+                    {option}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+
+            {halfHourError && (
+              <p className="error">El turno debe ser de 1 hora mínimo</p>
+            )}
+          </>
+        )
   );
 };
 

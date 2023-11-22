@@ -20,6 +20,7 @@ const CanchaInfo = (props) => {
 	const [isBooking, setIsBooking] = useState(false);
 	const [dateKey, setDateKey] = useState(null);
 	const [halfHourError, setHalfHourError] = useState(false);
+	const [noAvailableHours, setNoAvailableHours] = useState(false);
 
 	const normalizeDate = (date) => {
 		const [year, month, day] = date.split('-').map(Number);
@@ -175,7 +176,7 @@ const CanchaInfo = (props) => {
 										.map((availability, index) => (
 											<p key={index} onClick={() => {
 												if (availability.status === 'available') {
-													setOpenModal(true); setDateKey(availability.key)
+													setOpenModal(true); setDateKey(availability.key); setNoAvailableHours(false);
 												}
 											}} className='available-hours'>
 												{availability.from} - {availability.to} ({
@@ -244,15 +245,23 @@ const CanchaInfo = (props) => {
 									startTime={selectedStartTime}
 									endTime={selectedEndTime}
 									halfHourError={halfHourError}
+									noAvailableHours={() => setNoAvailableHours(true)}
 								/>
 							</DialogContent>
 							<DialogActions>
-								<Button onClick={handleCloseModal} color="primary">
-									Cancelar
-								</Button>
-								<Button onClick={handleReservation} color="primary" className="btn">
-									Reservar
-								</Button>
+								{noAvailableHours ? (
+									<Button onClick={handleCloseModal} color="primary">
+										Aceptar
+									</Button>
+								) : (
+									<>
+										<Button onClick={handleCloseModal} color="primary">
+											Cancelar
+										</Button><Button onClick={handleReservation} color="primary" className="btn">
+											Reservar
+										</Button>
+									</>
+								)}
 							</DialogActions>
 						</>
 					)}
