@@ -27,7 +27,7 @@ const Index = () => (
         <ServicesPlayers serviceClassName="service-single" />
         <AvailableFields />
         <Features />
-        <ParallaxVideo />
+        {/* <ParallaxVideo />  COMMENTED UNTIL WE HAVE A VIDEO */}
         <Overview />
         <Support />
         <Pricing className="bg-grey" />
