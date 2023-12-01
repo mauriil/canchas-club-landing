@@ -2,6 +2,10 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 const Pricing = (props) => {
+
+    const handleBuySuscription = () => {
+        window.open('https://app.canchas.club', '_blank');
+    }
     return (
         <section id="pricing" className={props.className}>
 
@@ -97,7 +101,7 @@ const Pricing = (props) => {
                             </div>
 
 
-                            <button type="submit" id="contact-submit" name="send" className="btn" >Comenzar</button>
+                            <button type="submit" id="contact-submit" name="send" className="btn" onClick={handleBuySuscription} >Comenzar</button>
 
                         </div>
                     </Col>
