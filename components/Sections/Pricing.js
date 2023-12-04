@@ -101,7 +101,7 @@ const Pricing = (props) => {
                             </div>
 
 
-                            <button type="submit" id="contact-submit" name="send" className="btn" onClick={handleBuySuscription} >Comenzar</button>
+                            <button type="submit" id="contact-submit" name="send" className="btn" onClick={handleBuySuscription} >Ir a la app</button>
 
                         </div>
                     </Col>
