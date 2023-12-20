@@ -168,7 +168,7 @@ const AvailableFields = (props) => {
         let query = '';
         query += deporte !== 'all' ? `sport=${encodeURIComponent(deporte)}&` : ''
         query += selectedDay !== '' ? `availability=${encodeURIComponent(selectedDay)}&` : ''
-        // query += provincia !== '' ? `province=${encodeURIComponent(provincia)}&` : ''
+        query += provincia !== '' ? `province=${encodeURIComponent(provincia)}&` : ''
         query += departamento !== 'all' ? `department=${encodeURIComponent(departamento)}&` : ''
         query += `page=${encodeURIComponent(page)}`
 
