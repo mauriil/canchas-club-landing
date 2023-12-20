@@ -19,6 +19,8 @@ const AvailableFields = (props) => {
     const [deporte, setDeporte] = useState('all');
     const [loading, setLoading] = useState(false);
     const [canchas, setCanchas] = useState([]);
+    const [totalPages, setTotalPages] = useState(1);
+    const [currentPage, setCurrentPage] = useState(1);
     const [openModal, setOpenModal] = useState(false);
     const [selectedCancha, setSelectedCancha] = useState(null);
     const [selectedDate, setSelectedDate] = useState(null);
@@ -158,7 +160,7 @@ const AvailableFields = (props) => {
         'Salta', 'San Juan', 'San Luis', 'Santa Cruz', 'Santa Fe', 'Santiago del Estero', 'Tierra del Fuego', 'Tucumán'
     ];
 
-    const handleSearch = () => {
+    const handleSearch = (page = 1) => {
         if (resultsSectionRef.current) {
             resultsSectionRef.current.scrollIntoView({ behavior: 'smooth' });
         }
@@ -166,8 +168,9 @@ const AvailableFields = (props) => {
         let query = '';
         query += deporte !== 'all' ? `sport=${encodeURIComponent(deporte)}&` : ''
         query += selectedDay !== '' ? `availability=${encodeURIComponent(selectedDay)}&` : ''
-        query += provincia !== '' ? `province=${encodeURIComponent(provincia)}&` : ''
+        // query += provincia !== '' ? `province=${encodeURIComponent(provincia)}&` : ''
         query += departamento !== 'all' ? `department=${encodeURIComponent(departamento)}&` : ''
+        query += `page=${encodeURIComponent(page)}`
 
         // fetch(`http://localhost:3000/fields?${query}`, {
         fetch(`https://api.canchas.club/fields?${query}`, {
@@ -179,11 +182,12 @@ const AvailableFields = (props) => {
         })
             .then((response) => response.json())
             .then((data) => {
-                data.forEach((cancha) => {
+                data.fields.forEach((cancha) => {
                     cancha.availability = cancha.availability.filter((availability) => availability.status === 'available');
                     setOpenCalendar({ [cancha._id]: false });
                 });
-                setCanchas(data);
+                setCanchas(data.fields);
+                setTotalPages(data.totalPages);
                 setLoading(false);
             })
             .catch((error) => {
@@ -408,6 +412,18 @@ const AvailableFields = (props) => {
                                         </Grid>
                                     ))
                                 )
+                            )}
+
+                            {totalPages > 1 && (
+                                <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center' }}>
+                                    {Array.from(Array(totalPages).keys()).map((page) => (
+                                        <Button key={page} onClick={() => {setCurrentPage(page + 1); handleSearch(page + 1)}} sx={{ mt: '1.5rem' }} className={`btn ${
+                                            currentPage === page + 1 ? '' : 'secondary'
+                                        }`}>
+                                            {page + 1}
+                                        </Button>
+                                    ))}
+                                </Grid>
                             )}
                         </Grid>
                     </Container>
