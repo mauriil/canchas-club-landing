@@ -31,7 +31,7 @@ const Index = () => (
         <Overview />
         <Support />
         <Pricing className="bg-grey" />
-        <Contact />
+        {/* <Contact /> */}
         <Footer />
         <ToTop />
     </Layout>
