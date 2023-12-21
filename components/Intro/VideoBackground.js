@@ -14,7 +14,7 @@ class VideoBG extends React.Component {
 				loop: 1,
 				controls: 0,
 				showinfo: 0,
-				start: 2	// Video start second
+				start: 0	// Video start second
 			},
 			frameborder: "0"
 		};
