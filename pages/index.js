@@ -17,7 +17,7 @@ import AvailableFields from "../components/Sections/AvailableFields";
 const Index = () => (
 
     <Layout
-        pageTitle="Canchas Club - Encuentra y Reserva Canchas Deportivas en Argentina"
+        pageTitle="Canchas Club - Encontrá y reservá Canchas Deportivas en Argentina"
         colorSchema="/assets/colors/green.css"
     >
         <Loader />

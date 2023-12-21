@@ -17,8 +17,8 @@ const Pricing = (props) => {
                     <Col className="col-12 col-md-10 col-lg-6">
 
                         <div className="section-title text-center">
-                            <h3>Descubre Nuestro Plan para Dueños de Canchas</h3>
-                            <p>Maximiza la visibilidad de tu cancha y atrae a más jugadores con nuestro plan exclusivo para dueños. Encuentra la solución perfecta que se adapte a las necesidades de tu club.</p>
+                            <h3>Descubrí Nuestro Plan para Dueños de Canchas</h3>
+                            <p>Maximiza la visibilidad de tu cancha y atrae a más jugadores con nuestro plan exclusivo para dueños. Encontrá la solución perfecta que se adapte a las necesidades de tu club.</p>
                         </div>
 
                     </Col>

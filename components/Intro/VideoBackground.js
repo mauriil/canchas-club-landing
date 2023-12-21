@@ -20,7 +20,7 @@ class VideoBG extends React.Component {
 		};
 
 		return <YouTube
-			videoId='w8ClCZ5SvBs'
+			videoId='tTRGbz7N6ac'
 			className="video-bg"
 			containerClassName="video-bg-wrapper"
 			opts={opts}
@@ -68,7 +68,7 @@ const VideoBackground = () => {
 						<div className="banner-text text-center">
 
 							<h1 className="wow fadeInUp" data-wow-offset="10" data-wow-duration="1s" data-wow-delay="0s">
-								Encuentra y reserva canchas deportivas en Argentina
+								Encontrá y reservá canchas deportivas en Argentina
 							</h1>
 
 							<p className="wow fadeInUp" data-wow-offset="10" data-wow-duration="1s" data-wow-delay="0.3s">

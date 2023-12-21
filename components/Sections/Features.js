@@ -128,7 +128,7 @@ const Features = (props) => {
 										{/* <!-- Box Text --> */}
 										<div className="box-text align-self-center align-self-md-start">
 											<h4>Búsqueda personalizada.</h4>
-											<p>Encuentra la cancha perfecta según tu provincia, deporte y horario preferido.</p>
+											<p>Encontrá la cancha perfecta según tu provincia, deporte y horario preferido.</p>
 										</div>
 
 									</div>

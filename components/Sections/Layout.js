@@ -38,7 +38,7 @@ const Layout = (props) => {
 				<meta property="og:locale" content="es_ES" />
 				<meta property="og:type" content="website" />
 				<meta property="og:title" content="Canchas Club" />
-				<meta property="og:description" content="Encuentra y Reserva Canchas Deportivas en Argentina" />
+				<meta property="og:description" content="Encontrá y Reservá Canchas Deportivas en Argentina" />
 				<meta property="og:image" content={ogImage} />
 				<meta property="og:image:secure_url" content={ogImage} />
 				<meta property="og:image:width" content="1200" />

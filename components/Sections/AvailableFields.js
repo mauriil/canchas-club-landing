@@ -214,7 +214,7 @@ const AvailableFields = (props) => {
                     <div className="col-12 col-md-10 col-lg-6">
 
                         <div className="section-title text-center">
-                            <h3><img src='/images/banner/CanchasClub_Iconografia-PERSONALIZADA.svg' width={'60px'} ></img> ¡Encuentra tu cancha ideal ahora!</h3>
+                            <h3><img src='/images/banner/CanchasClub_Iconografia-PERSONALIZADA.svg' width={'60px'} ></img> ¡Encontrá tu cancha ideal ahora!</h3>
                         </div>
 
                     </div>
