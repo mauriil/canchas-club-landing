@@ -45,7 +45,7 @@ const Layout = (props) => {
 				<meta property="og:image:height" content="630" />
 				<meta property='og:image:type' content='image/png' />
 				<meta property="og:image:alt" content="CanchasClub"></meta>
-				<meta property="og:url" content="https://canchas.club/" />
+				<meta property="og:url" content="https://www.canchas.club/" />
 
 				/* Title */
 				<title>{props.pageTitle}</title>
