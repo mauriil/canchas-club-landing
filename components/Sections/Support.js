@@ -50,7 +50,7 @@ const Support = (props) => {
 
 								<Accordion.Body>
 									<p>
-									Ingresa tu ubicación, el deporte y la fecha deseada para verificar la disponibilidad. Elige una cancha y un horario, selecciona la modalidad (simple/fijo) y proporciona una tarjeta como depósito de seguridad (garantía). La reserva es instantánea y no se cobrará a menos que no asistas al turno.
+									Ingresá tu ubicación, el deporte y la fecha deseada para verificar la disponibilidad. Elegí una cancha y un horario, y proporcioná un método de pago online seguro. La reserva es instantánea y podés revisar el estado de la misma dentro de la App.
 									Tenemos una herramienta de búsqueda que te permite encontrar la cancha ideal <a href="#available-fields">haciendo click aqui</a>.	
 									</p>
 								</Accordion.Body>
@@ -66,7 +66,7 @@ const Support = (props) => {
 
 								<Accordion.Body>
 									<p>
-									Si eres nuevo, tu cuenta se crea con tu correo electrónico. Si ya eres usuario, inicia sesión con tu cuenta en nuestra <a href="https://app.canchas.club" target='_blank'><strong>plataforma web</strong></a>, ve a la pestaña "Mis Reservas" y administra tus reservas.
+									Si sos nuevo, tu cuenta se crea con tu correo electrónico. Si ya sos usuario, inicia sesión con tu cuenta en nuestra <a href="https://app.canchas.club" target='_blank'><strong>plataforma web</strong></a>, ve a la pestaña "Mis Reservas" y administra tus reservas.
 									</p>
 								</Accordion.Body>
 								
@@ -81,7 +81,7 @@ const Support = (props) => {
 
 								<Accordion.Body>
 									<p>
-									Si no encuentras la cancha que buscas, contáctanos y haremos nuestro mejor esfuerzo para ayudarte a encontrar una opción adecuada.
+									Si no encontrás la cancha que buscás, contáctanos y haremos nuestro mejor esfuerzo para ayudarte a encontrar una opción adecuada.
 									</p>
 								</Accordion.Body>
 								
@@ -96,7 +96,7 @@ const Support = (props) => {
 
 								<Accordion.Body>
 									<p>
-									Puedes comunicarte con nuestro equipo de soporte a través de la sección  <a href="#contact"><strong>"Dejános tu consulta"</strong></a> en la plataforma o enviando un correo electrónico a soporte@canchas.club.
+									Puedes comunicarte con nuestro equipo de soporte enviando un correo electrónico a informacion@canchas.club. Vamos a intentar atender tu consulta lo antes posible.
 									</p>
 								</Accordion.Body>
 								
@@ -109,11 +109,11 @@ const Support = (props) => {
 				
 				<div className="empty-30"></div>
 				
-				<Row>					
+				{/* <Row>					
 					<Col className="col-12">
 						<p className="text-center mb-0">¿No resolvimos tu duda? ¡Contáctanos en cualquier momento, estamos aquí para ayudarte!  <a href="#contact"><strong>Envianos tu consulta</strong></a></p>
 					</Col>
-				</Row>
+				</Row> */}
 				
 			</Container>
 			

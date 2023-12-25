@@ -54,7 +54,7 @@ const Services = (props) => {
 						} width={'100px'}></img>
 
 							<h5>Reserva en Línea</h5>
-							<p>Selecciona la cancha que te guste y realiza tu reserva en línea de manera segura. También puedes optar por pagar en persona al llegar.</p>
+							<p>Selecciona la cancha que te guste y realiza tu reserva en línea de manera segura.</p>
 
 						</div>
 					</Col>
@@ -70,8 +70,8 @@ const Services = (props) => {
 										'/images/features/CanchasClub_Iconografia-JUEGA.svg'
 						} width={'100px'}></img>
 
-							<h5>¡Juega y Disfruta!</h5>
-							<p>Llega a la cancha en el horario seleccionado y disfruta de tu actividad deportiva. ¡Es así de simple y conveniente con Canchas Club!</p>
+							<h5>¡Jugá y Disfrutá!</h5>
+							<p>Llegá a la cancha en el horario seleccionado y disfruta de tu actividad deportiva. ¡Es así de simple y conveniente con Canchas Club!</p>
 
 						</div>
 					</Col>

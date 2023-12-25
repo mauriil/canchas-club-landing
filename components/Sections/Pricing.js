@@ -55,7 +55,8 @@ const Pricing = (props) => {
                                 <img src='/images/pricing/CanchasClub_Iconografia-PROGRESIV.svg' width={'100px'} alt="Icono de CanchaProgresivo" />
                             </div>
                             <h3 className="plan-type">Suscripción Premium a Canchas Club</h3>
-                            <h2 className="plan-price">$15.000 (ARS)</h2>
+                            <h2 className="plan-price"> <del> $15.000 (ARS) </del> </h2>
+                            <h2 className="plan-price" style={{color: 'green'}}> <b> $0 (ARS) Los primeros 100 clubes </b></h2>
 
                             <div className="features-list">
                                 <h4>Características Destacadas:</h4>
