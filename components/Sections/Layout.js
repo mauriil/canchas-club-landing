@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Head from 'next/head';
 
 // Add dynamic CSS
@@ -24,20 +24,28 @@ const Layout = (props) => {
 	// Color schema
 	addStyleSheet(props.colorSchema);
 
+	useEffect(() => {
+		// Google Analytics script
+		const script = document.createElement('script');
+		script.async = true;
+		script.src = `https://www.googletagmanager.com/gtag/js?id=G-7FZHK0TGHC`;
+		document.head.appendChild(script);
+		script.onload = () => {
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag() {
+			window.dataLayer.push(arguments);
+		  }
+		  gtag('js', new Date());
+		  gtag('config', 'G-7FZHK0TGHC');
+		};
+	  }, []);
+
 	// Club logo
 	const ogImage = props.clubLogo ? props.clubLogo : "https://canchas-club.s3.amazonaws.com/CanchasClub_IdentidadMarca/LOGO/_png/CanchasClub_Logo_FondoColor-09.png";
 	return (
 		<div>
 
 			<Head>
-				<script async src="https://www.googletagmanager.com/gtag/js?id=G-7FZHK0TGHC"></script>
-				<script>
-					window.dataLayer = window.dataLayer || [];
-					function gtag(){dataLayer.push(arguments)}
-					gtag('js', new Date());
-
-					gtag('config', 'G-7FZHK0TGHC');
-				</script>
 
 				/* Meta */
 				<meta charSet="utf-8" />
