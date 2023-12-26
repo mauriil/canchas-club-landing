@@ -53,7 +53,8 @@ const VideoBackground = () => {
 		<section id="home" className="banner video-bg bottom-oval">
 
 			{windowWidth > 768 ? (
-				<VideoBG />
+				// <VideoBG /> // Commented out because it's not working on mobile and desktop is with issues, is not a priority
+				null
 			) : null}
 
 			{/* <!-- Container --> */}
