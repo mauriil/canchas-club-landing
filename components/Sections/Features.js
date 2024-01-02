@@ -14,7 +14,7 @@ const Features = (props) => {
 
 						<div className="section-title text-center">
 							<h3>Características Clave de Canchas Club</h3>
-							<p>   Canchas Club te brinda una plataforma integral para llevar tu experiencia deportiva al siguiente nivel. Ya sea que estés buscando el lugar perfecto para un partido amistoso o quieras gestionar tus canchas de manera eficiente, estamos aquí para ti. Descubre cómo nuestras características únicas pueden mejorar tu experiencia deportiva. </p>
+							<p>   Canchas Club te brinda una plataforma integral para llevar tu experiencia deportiva al siguiente nivel. Ya sea que estés buscando el lugar perfecto para un partido amistoso o quieras gestionar tus canchas de manera eficiente, estamos aquí para vos. Descubí cómo nuestras características únicas pueden mejorar tu experiencia deportiva. </p>
 						</div>
 
 					</Col>
@@ -57,7 +57,7 @@ const Features = (props) => {
 									{/* <!-- Box Text --> */}
 									<div className="box-text align-self-center align-self-md-start">
 										<h4>Reserva en línea segura y flexible.</h4>
-										<p>Realiza tus reservas en línea de manera segura y, si lo prefieres, paga en persona al llegar a la cancha.</p>
+										<p>Realizá tus reservas en línea de manera segura o, si lo preferís, solicitá al dueño pagar en persona al llegar a la cancha.</p>
 									</div>
 
 								</div>
@@ -75,7 +75,7 @@ const Features = (props) => {
 									{/* <!-- Box Text --> */}
 									<div className="box-text align-self-center align-self-md-start">
 										<h4>Plataforma intuitiva para dueños de canchas.</h4>
-										<p>Si eres dueño de una cancha, disfruta de una herramienta sencilla para administrar tus turnos, establecer precios y más.</p>
+										<p>Si sos dueño de una cancha, disfrutá de una herramienta sencilla para administrar tus turnos, establecer precios y más.</p>
 									</div>
 
 								</div>
@@ -108,7 +108,7 @@ const Features = (props) => {
 									{/* <!-- Box Text --> */}
 									<div className="box-text align-self-center align-self-md-start">
 										<h4>Visibilidad en tiempo real de la disponibilidad de canchas según tus preferencias.</h4>
-										<p>Conoce al instante la disponibilidad de las canchas según tus preferencias y configura turnos esporádicos o fijos.</p>
+										<p>Conocé al instante la disponibilidad de las canchas según tus preferencias y configurá turnos esporádicos o fijos.</p>
 									</div>
 
 								</div>
@@ -149,7 +149,7 @@ const Features = (props) => {
 									{/* <!-- Box Text --> */}
 									<div className="box-text align-self-center align-self-md-start">
 										<h4>Notificaciones via e-mail</h4>
-										<p>Mantente al tanto de tus reservas y actualizaciones importantes a través de notificaciones directas en tu correo electrónico.</p>
+										<p>Mantenete al tanto de tus reservas y actualizaciones importantes a través de notificaciones directas en tu correo electrónico.</p>
 									</div>
 
 								</div>

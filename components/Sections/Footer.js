@@ -35,7 +35,7 @@ const Footer = (props) => {
 									<img src="/images/CanchasClub_Logo_FondoTransparente-menu.png" alt="CanchasClub" data-rjs="2" />
 								</p>
 								<p>
-									Con Canchas Club, reservar una cancha es más sencillo que nunca. Conéctate con tus deportes favoritos y descubre las mejores canchas en Argentina. Únete a nosotros para una experiencia deportiva excepcional.
+									Con Canchas Club, reservar una cancha es más sencillo que nunca. Conéctate con tus deportes favoritos y descubrí las mejores canchas en Argentina. Únete a nosotros para una experiencia deportiva excepcional.
 								</p>
 
 								{/* <!-- Social links --> */}
@@ -55,7 +55,7 @@ const Footer = (props) => {
 
 								<ul className="footer-menu">
 									<li onClick={() => setOpenPolicyOpen(true)}><Typography sx={{ cursor: 'pointer', fontWeight: 'bold' }}> Política de privacidad </Typography></li>
-									<li onClick={() => setOpenTermsOpen(true)}><Typography sx={{ cursor: 'pointer', fontWeight: 'bold' }}> Terminos &amp; Condiciones </Typography></li>
+									<li onClick={() => setOpenTermsOpen(true)}><Typography sx={{ cursor: 'pointer', fontWeight: 'bold' }}> Términos &amp; Condiciones </Typography></li>
 									{/* <li><a href="#">Affiliate Program</a></li>
 										<li><a href="#">Careers</a></li> */}
 								</ul>
@@ -191,11 +191,15 @@ const Footer = (props) => {
 
 							<p>Canchas Club se reserva el derecho de modificar estos términos en cualquier momento. Los cambios serán efectivos al publicar la versión actualizada en el sitio. Se recomienda revisar periódicamente los términos y condiciones.</p>
 
-							<h2>8. Contacto</h2>
+							<h2>8. Tarifa de Transacción</h2>
+
+							<p>Canchas Club aplicará una tarifa del 3% sobre cada transacción realizada en la plataforma como método de mantenimiento de la misma.</p>
+
+							<h2>9. Contacto</h2>
 
 							<p>Para preguntas o inquietudes sobre estos términos, comunícate con nosotros a informacion@canchas.club.</p>
 
-							<h2>9. Ley Aplicable</h2>
+							<h2>10. Ley Aplicable</h2>
 
 							<p>Estos términos y condiciones se rigen por las leyes de Argentina y cualquier disputa que surja en relación con estos términos estará sujeta a la jurisdicción exclusiva de los tribunales de [ciudad, país].</p>
 
@@ -223,7 +227,7 @@ const Footer = (props) => {
 
 							{/* <!-- Text --> */}
 							<p className="copyright text-center">
-								Copyright © 2023 <a href="#" >CanchasClub</a>. All Rights Reserved.
+								Copyright © 2024 <a href="#" >CanchasClub</a>. All Rights Reserved.
 							</p>
 
 						</Col>

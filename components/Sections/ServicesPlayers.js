@@ -17,7 +17,7 @@ const Services = (props) => {
 
 						<div className="section-title text-center">
 							<h3>Cómo Alquilar una Cancha</h3>
-							<p>Descubre cómo es fácil comenzar a usar Canchas Club y reservar tu próxima experiencia deportiva.</p>
+							<p>Descubrí cómo es fácil comenzar a usar Canchas Club y reservar tu próxima experiencia deportiva.</p>
 						</div>
 
 					</Col>
@@ -37,7 +37,7 @@ const Services = (props) => {
 							} width={'100px'}></img>
 
 							<h5>Busca tu Cancha</h5>
-							<p>Usa nuestra intuitiva herramienta de búsqueda para encontrar la cancha perfecta según tu ubicación, deporte y horario deseado.</p>
+							<p>Usá nuestra intuitiva herramienta de búsqueda para encontrar la cancha perfecta según tu ubicación, deporte y horario deseado.</p>
 
 						</div>
 					</Col>
@@ -54,7 +54,7 @@ const Services = (props) => {
 						} width={'100px'}></img>
 
 							<h5>Reserva en Línea</h5>
-							<p>Selecciona la cancha que te guste y realiza tu reserva en línea de manera segura.</p>
+							<p>Seleccioná la cancha que te guste y realizá tu reserva en línea de manera segura.</p>
 
 						</div>
 					</Col>
@@ -71,7 +71,7 @@ const Services = (props) => {
 						} width={'100px'}></img>
 
 							<h5>¡Jugá y Disfrutá!</h5>
-							<p>Llegá a la cancha en el horario seleccionado y disfruta de tu actividad deportiva. ¡Es así de simple y conveniente con Canchas Club!</p>
+							<p>Llegá a la cancha en el horario seleccionado y disfrutá de tu actividad deportiva. ¡Es así de simple y conveniente con Canchas Club!</p>
 
 						</div>
 					</Col>

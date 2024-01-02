@@ -20,7 +20,7 @@ const Overview = (props) => {
 						{/* <!-- Section title --> */}
 						<div className="section-title text-center text-lg-start">
 							<h3>¿Dueño de un Club?</h3>
-							<p>Aprende cómo administrar tu club y canchas de manera eficiente en solo tres simples pasos.</p>
+							<p>Aprendé cómo administrar tu club y canchas de manera eficiente en solo tres simples pasos.</p>
 						</div>
 
 						{/* <!-- Items --> */}
@@ -42,8 +42,8 @@ const Overview = (props) => {
 
 								{/* <!-- Content --> */}
 								<div className="content">
-									<h6 className="font-weight-bold mb-2 mt-0">Paso 1: Configura tu Club</h6>
-									<p>Registra tu club y configura los detalles básicos, como nombre, ubicación y detalles de contacto.r</p>
+									<h6 className="font-weight-bold mb-2 mt-0">Paso 1: Configurá tu Club</h6>
+									<p>Registrá tu club y configurá los detalles básicos, como nombre, ubicación y detalles de contacto.r</p>
 								</div>
 
 							</div>
@@ -64,8 +64,8 @@ const Overview = (props) => {
 
 								{/* <!-- Content --> */}
 								<div className="content">
-									<h6 className="font-weight-bold mb-2 mt-0">Paso 2: Agrega tus Canchas</h6>
-									<p>Añade las canchas de tu club junto con sus características, horarios y precios para que los usuarios puedan verlas.</p>
+									<h6 className="font-weight-bold mb-2 mt-0">Paso 2: Agregá tus Canchas</h6>
+									<p>Añadí las canchas de tu club junto con sus características, horarios y precios para que los usuarios puedan verlas.</p>
 								</div>
 
 							</div>
@@ -86,8 +86,8 @@ const Overview = (props) => {
 
 								{/* <!-- Content --> */}
 								<div className="content">
-									<h6 className="font-weight-bold mb-2 mt-0">Paso 3: Gestiona los Turnos</h6>
-									<p>Administra los turnos de las canchas, establece disponibilidad y permite a los usuarios reservar de acuerdo a tu configuración.</p>
+									<h6 className="font-weight-bold mb-2 mt-0">Paso 3: Gestioná los Turnos</h6>
+									<p>Administrá los turnos de las canchas, establecé disponibilidad y permití a los usuarios reservar de acuerdo a tu configuración.</p>
 								</div>
 
 							</div>
