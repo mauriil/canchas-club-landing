@@ -144,9 +144,16 @@ const AvailableFields = (props) => {
             return objeto.provincia.nombre.toLowerCase() === provincia.toLowerCase();
         });
         // make departments an array of strings
-        const departmentsArray = departments.map((department) => {
-            return department.localidad_censal.nombre;
-        });
+        let departmentsArray = [];
+        if (provincia === 'Ciudad Autónoma de Buenos Aires') {
+            departmentsArray = departments.map((department) => {
+                return `${department.nombre[0].toUpperCase()}${department.nombre.slice(1).toLowerCase()}`;
+            });
+        } else {
+            departmentsArray = departments.map((department) => {
+                return department.departamento.nombre;
+            });
+        }
         // remove duplicates
         const uniqueDepartments = [...new Set(departmentsArray)];
         // order alphabetically
@@ -155,7 +162,7 @@ const AvailableFields = (props) => {
     }
 
     const provinces = [
-        'Buenos Aires', 'Catamarca', 'Chaco', 'Chubut', 'Córdoba', 'Corrientes', 'Entre Ríos',
+        'Buenos Aires', 'Ciudad Autónoma de Buenos Aires', 'Catamarca', 'Chaco', 'Chubut', 'Córdoba', 'Corrientes', 'Entre Ríos',
         'Formosa', 'Jujuy', 'La Pampa', 'La Rioja', 'Mendoza', 'Misiones', 'Neuquén', 'Río Negro',
         'Salta', 'San Juan', 'San Luis', 'Santa Cruz', 'Santa Fe', 'Santiago del Estero', 'Tierra del Fuego', 'Tucumán'
     ];
